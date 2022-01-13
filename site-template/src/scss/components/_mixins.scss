@@ -1,0 +1,68 @@
+@use "../custom"as *;
+
+// Gradient mixin
+
+@mixin gradient {
+    // background: linear-gradient(147deg, rgba($primary, 0.95), rgba($secondary, 0.95));
+    background: linear-gradient(147deg,
+            $primary-dark 0%,
+            $primary 55%,
+            $primary-light 70%,
+            $secondary 100%);
+}
+
+@mixin responsiveText {
+    font-size: calc(50% + 1vw + 1vh);
+}
+
+// Background Image
+@mixin backgroundImage {
+    &:after {
+        content: "";
+        position: fixed;
+
+        /* stretch a fixed position to the whole screen */
+        top: 0;
+        height: 100%;
+        width: auto;
+
+        /* fix for mobile browser address bar appearing disappearing */
+        left: 0;
+        right: 0;
+        z-index: -1;
+        /* needed to keep in the background */
+        background: url("https://dm2306files.storage.live.com/y4msz1WVVabdryz8A8gHKJ700pLGNDeotWKSL8ab5_niv8dXHp_jVmv8rHyUu8Xw5hJsHKeUPLCd963o_SyvDIrMLPFuMFccLAP-vtLlMmMWM8ogTbYW0OECrYkZMJoLrvOtZrUdqFqRzUS8K0VRbhLDsbRbI6xGMo5XapbeAaq2mKfDC1j_nzc-QHwVT_9D56E?width=1900&height=1080&cropmode=none") top center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
+// A light background cover for content pages
+
+@mixin lightCover {
+    background-color: rgba($white, 0.5);
+}
+
+@mixin logoFontFamily {
+    font-family: "Grechen Fuemen", cursive;
+}
+
+@mixin baseFont {
+    font-family: "Poppins", sans-serif;
+}
+
+// Absolute center
+@mixin absoluteCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin transitionProperty {
+    transition-duration: 1s;
+    transition-property: all;
+}
