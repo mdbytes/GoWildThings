@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
 const penny =
-  "https://dm2306files.storage.live.com/y4mQ04FmkR-A2CPGkLG63pCI1ploGZrL9iWtm9FZxrGgC7ICLG2-hOElR3PXh61tX40hujpWu02hER9rYQanUCh6iO44yMSojF1jIn0LkcFLERPJh7wGAyym8t_v9289VI8SB0tqgHmghntBUvNzbvnbJwcOTloK5vwaTXUCS7K0bauneH2HwrF_D0x9prAsU2C?width=128&height=150&cropmode=none";
+  "https://gowildthings.com/wp-content/uploads/2022/01/logo-small.png";
 
 class Footer extends Component {
   constructor(props) {
@@ -177,13 +177,13 @@ class Footer extends Component {
                 </div>
               </div>
               <div id="mascot-container" className="col-12 col-sm-4 col-lg-4">
-                <h5 className="">Penguin Tours, Ltd.</h5>
+                <h5 className="">Wild Things Photography</h5>
                 <br />
                 <img src={penny} alt="Baby Tux" className="img-fluid" />
 
                 <p>
                   Connecting People <br />
-                  and Penguins
+                  and Nature
                 </p>
               </div>
 
@@ -192,7 +192,7 @@ class Footer extends Component {
                 <div id="quick-links">
                   <NavLink to="/">Home</NavLink>
                   <span>|</span>
-                  <NavLink to="/services">Services</NavLink>
+                  <NavLink to="/services">About</NavLink>
                   <span>|</span>
                   <NavLink to="/contact">Contact</NavLink>
                 </div>

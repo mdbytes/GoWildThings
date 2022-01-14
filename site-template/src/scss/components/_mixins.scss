@@ -31,7 +31,7 @@
         right: 0;
         z-index: -1;
         /* needed to keep in the background */
-        background: url("https://dm2306files.storage.live.com/y4msz1WVVabdryz8A8gHKJ700pLGNDeotWKSL8ab5_niv8dXHp_jVmv8rHyUu8Xw5hJsHKeUPLCd963o_SyvDIrMLPFuMFccLAP-vtLlMmMWM8ogTbYW0OECrYkZMJoLrvOtZrUdqFqRzUS8K0VRbhLDsbRbI6xGMo5XapbeAaq2mKfDC1j_nzc-QHwVT_9D56E?width=1900&height=1080&cropmode=none") top center;
+        background: url("https://gowildthings.com/wp-content/uploads/2022/01/006-1.jpg") top center;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -43,11 +43,13 @@
 // A light background cover for content pages
 
 @mixin lightCover {
-    background-color: rgba($white, 0.5);
+
+    background: linear-gradient(0.5turn, rgba(0, 0, 0, .2), rgba(0, 0, 0, .4) 25%, rgba(0, 0, 0, .7) 70%, rgba(0, 0, 0, .8));
 }
 
 @mixin logoFontFamily {
-    font-family: "Grechen Fuemen", cursive;
+    font-family: 'Alegreya Sans SC', sans-serif;
+
 }
 
 @mixin baseFont {

@@ -14,7 +14,12 @@
 .intro-section {
     min-height: 100vh;
     padding: 10rem 0 0 0;
+    margin-top: 15vh;
     width: 100%;
+    max-width: 1000px;
+    float: right;
+
+
 
     // reducing padding for lower screens
     @include media-breakpoint-down(lg) {
@@ -33,17 +38,16 @@
     // class .intros applies to both columns on LandingPage
     .intros {
 
-        // heading text
-        .display-2 {
-            img {
-                padding: 2rem 0rem;
-                width: 100%;
-                justify-self: center;
-                background-color: rgba($white, 0);
-                box-shadow: 0px 0px 8px 8px rgba($white, 0);
-                border-radius: 8px;
-            }
+
+        h1 {
+            color: #fff;
+            font-size: 3rem;
+            text-align: center;
+            font-weight: 800;
         }
+
+        // heading text
+        .display-2 {}
 
         // site tag line in first column
         .display-2--description {
@@ -75,12 +79,8 @@
                 text-align: center;
 
                 #tagline {
-                    img {
-                        display: block;
-                        width: 80%;
-                        margin: 0 auto;
-                    }
-
+                    color: #fff;
+                    font-weight: 800;
                     margin-bottom: 3rem;
                 }
 
@@ -98,8 +98,9 @@
 
             // adjusting for mdbytes logo font
             .logo-style {
-                color: $primary;
-                font-size: 1.8rem;
+                color: $secondary;
+                font-size: 2rem;
+                font-weight: 800;
 
                 @media (max-width: 414px) {
                     font-size: 1.2rem;
@@ -109,7 +110,7 @@
             // adjusting for mdbytes name font
             .name-style {
                 color: $secondary;
-                font-size: 1.8rem;
+                font-size: 2.25rem;
 
                 @media (max-width: 414px) {
                     font-size: 1.2rem;

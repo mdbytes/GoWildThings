@@ -7,6 +7,7 @@ body {
 
 .App {
     @include backgroundImage;
+    @include lightCover;
 }
 
 .attribution {
@@ -52,7 +53,7 @@ body {
         }
 
         .name-style {
-            font-family: "Alegreya Sans", cursive;
+            font-family: 'Alegreya Sans SC', sans-serif;
             font-size: 1.5em;
             font-weight: 800;
             color: $gray-500;
@@ -106,10 +107,7 @@ body {
         font-weight: 600;
         font-family: "Poppins", sans-serif;
         display: inline-block;
-        @include gradient;
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: $primary;
 
         @include media-breakpoint-up(md) {
             font-size: 2.5rem;

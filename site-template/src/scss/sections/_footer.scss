@@ -11,6 +11,7 @@
 
 // Styling for the top one-third row in the footer - contact info
 .footer {
+  clear: both;
   padding-top: 1rem;
   padding-bottom: 0rem;
   background-color: $footer-background;
@@ -248,7 +249,7 @@
     }
 
     .name-style {
-      font-family: "Alegreya Sans", cursive;
+      font-family: "Alegreya Sans SC", sans-serif;
       font-size: 2em;
       font-weight: 800;
       color: $secondary;

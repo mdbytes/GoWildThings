@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
 const logo =
-  "https://dm2306files.storage.live.com/y4mQ04FmkR-A2CPGkLG63pCI1ploGZrL9iWtm9FZxrGgC7ICLG2-hOElR3PXh61tX40hujpWu02hER9rYQanUCh6iO44yMSojF1jIn0LkcFLERPJh7wGAyym8t_v9289VI8SB0tqgHmghntBUvNzbvnbJwcOTloK5vwaTXUCS7K0bauneH2HwrF_D0x9prAsU2C?width=128&height=150&cropmode=none";
+  "https://gowildthings.com/wp-content/uploads/2022/01/logo-small.png";
 
 class NavBar extends Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class NavBar extends Component {
           <div className="container">
             <NavLink className="navbar-brand d-flex align-items-end" to="/">
               <img src={logo} alt="logo" />
-              <span className="logo-font">Penguin Tours, Ltd.</span>
+              <span className="logo-font">Wild Things Photography</span>
             </NavLink>
             <button
               id="navToggler"
@@ -63,7 +63,18 @@ class NavBar extends Component {
                     to="/services"
                     onClick={this.navClick}
                   >
-                    Services
+                    About
+                  </NavLink>
+                </li>
+
+                <li className="nav-item d-flex align-items-center ">
+                  <NavLink
+                    id="testimonialsLink"
+                    className="nav-link"
+                    to="/adventures"
+                    onClick={this.navClick}
+                  >
+                    Galleries
                   </NavLink>
                 </li>
                 <li className="nav-item d-flex align-items-center ">
@@ -76,28 +87,6 @@ class NavBar extends Component {
                     Gallery
                   </NavLink>
                 </li>
-
-                <li className="nav-item d-flex align-items-center ">
-                  <NavLink
-                    id="testimonialsLink"
-                    className="nav-link"
-                    to="/testimonials"
-                    onClick={this.navClick}
-                  >
-                    Testimonials
-                  </NavLink>
-                </li>
-                <li className="nav-item d-flex align-items-center ">
-                  <NavLink
-                    id="faqLink"
-                    className="nav-link"
-                    to="/faq"
-                    onClick={this.navClick}
-                  >
-                    Faq
-                  </NavLink>
-                </li>
-
                 <li className="nav-item d-flex align-items-center ">
                   <NavLink
                     id="contactLink"
@@ -106,6 +95,14 @@ class NavBar extends Component {
                     onClick={this.navClick}
                   >
                     Contact
+                  </NavLink>
+                  <NavLink
+                    id="privacyLink"
+                    className="nav-link"
+                    to="/privacy"
+                    onClick={this.navClick}
+                  >
+                    Privacy
                   </NavLink>
                 </li>
               </ul>

@@ -51,7 +51,7 @@
         }
 
         @include media-breakpoint-down(md) {
-            background-color: rgba($primary, .5);
+            background-color: rgba(#fff, .5);
             border-radius: 8px;
 
             &>div {
@@ -69,9 +69,9 @@
         padding: 3rem 1.5rem 3rem 1.5rem;
 
         background-color: rgba($white, 0.8);
-        border: 1px solid $primary;
+        border: 1px solid rgba($white, 0.8);
         border-radius: 8px;
-        box-shadow: 0px 0px 3.5rem $primary;
+        box-shadow: 0px 0px 3.5rem rgba($white, 0.7);
     }
 
 
@@ -142,7 +142,7 @@
                 }
 
                 &:hover {
-                    box-shadow: 0 0 2rem #f06418;
+                    box-shadow: 0 0 2rem rgba($secondary, .8);
                     background: linear-gradient(147deg,
                             #0f1a28 0%,
                             #2b5075 55%,
@@ -167,7 +167,7 @@
             display: block;
             width: 95%;
             border-radius: 8px;
-            box-shadow: 8px 8px 8px $primary;
+            box-shadow: 8px 8px 8px rgba($secondary, .8);
         }
 
         @media (max-width: 992px) {
