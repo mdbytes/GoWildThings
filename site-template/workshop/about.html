@@ -7,108 +7,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="src/css/main.css">
+    <link rel="stylesheet" href="../src/css/main.css">
 </head>
 
 <body>
+    <style>
+        #aboutUsCarousel {
+            width: 90%;
+            margin: 0 auto;
+            max-width: 1000px;
+        }
 
-    <div class="container-fluid">
-        <div id="first_row" class="row">
-            <div id="headline" class="col">
-                <h2>Featured Galleries</h2>
-            </div>
-        </div>
-        <div id="second_row" class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Trail Ridge Road</h5>
-                        <div class="post-thumbnail">
-                            <p class="p-center-image"><img
-                                    src="https://gowildthings.com/wp-content/uploads/2016/09/IMG_6739_1600_533.png"
-                                    alt="thumbnail image"></p>
-                        </div><br>
-                        <p>Adventures into the wild take us to the most extraordinary places. You will find narrative
-                            and photo records of our adventures on our blog. We look forward to your input on the blog
-                            articles as we are constantly tracking wildlife sightings across Nor<a
-                                href="https://gowildthings.com/hello-world/">&nbsp;&nbsp;.... Read More</a></p>
+        #fourth_row {
+            margin-top: 3rem;
+        }
+
+        #sixth_row .card,
+        #fourth_row .card {
+            border: none !important;
+        }
 
 
-                        <br><a href="https://gowildthings.com/hello-world/" class="btn btn-primary">View the gallery</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Yellowstone Bear Encounter</h5>
-                        <div class="post-thumbnail">
-                            <p class="p-center-image"><img
-                                    src="https://gowildthings.com/wp-content/uploads/2018/01/bear_feature_1600x533.jpg"
-                                    alt="thumbnail image"></p>
-                        </div><br>
-                        <p>During our visit to Yellowstone we were blessed to see bears on three separate occasions, one
-                            of which was much closer than we could have expected.&nbsp; As you can see, the first
-                            picture was from over 100 yards.&nbsp; After the camera clicked, the b<a
-                                href="https://gowildthings.com/report-bear-necessities/">&nbsp;&nbsp;.... Read More</a>
-                        </p>
+        #feature_photo {
+            margin-top: 3rem !important;
+            width: 98%;
+            margin: 0 auto;
+        }
 
 
-                        <br><a href="https://gowildthings.com/report-bear-necessities/" class="btn btn-primary">View the
-                            gallery</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="third_row" class="row">
-            <div id="carouselExampleFade" style="width:100%;" class="carousel slide carousel-fade" data-ride="carousel">
+        #feature_photo img {
+            width: 100%;
+            height: auto;
+        }
+
+        #sixth_row .title,
+        #feature_photo>h3,
+        #about-us .card-title {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        #sixth_row .subtitle,
+        #feature_photo>p.subtitle,
+        #about-us .card-subtitle {
+            text-align: center;
+        }
+
+        #slider h2 {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        #organizations h3 {
+            margin-top: 3rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        #organizations {
+            min-height: 15vh;
+        }
+
+        #about-us .container {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card-body .p-center-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        #feature_photo>p>img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+
+    <div id="about-us" class="container">
+        <div id="slider" class="row">
+            <h2>About Us</h2>
+            <div id="aboutUsCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active" data-interval="2000">
+                    <div class="carousel-item active">
                         <img class="d-block w-100"
                             src="https://gowildthings.com/wp-content/themes/wildthing/images/slide1_1600x533.jpg"
                             alt="First slide">
                     </div>
-                    <div class="carousel-item" data-interval="2000">
+                    <div class="carousel-item">
                         <img class="d-block w-100"
                             src="https://gowildthings.com/wp-content/themes/wildthing/images/slide2_1600x533.jpg"
                             alt="Second slide">
                     </div>
-                    <div class="carousel-item" data-interval="2000">
+                    <div class="carousel-item">
                         <img class="d-block w-100"
                             src="https://gowildthings.com/wp-content/themes/wildthing/images/slide3_1600x533.jpg"
                             alt="Third slide">
                     </div>
-                    <div class="carousel-item" data-interval="2000">
+                    <div class="carousel-item">
                         <img class="d-block w-100"
                             src="https://gowildthings.com/wp-content/themes/wildthing/images/slide4_1600x533.jpg"
-                            alt="Third slide">
+                            alt="Fourth slide">
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
+
         </div>
         <div id="fourth_row" class="row">
             <div class="col-lg-6">
                 <div id="about_us" class="card">
                     <div class="card-body">
-                        <h3 class="card-title">About</h3>
+                        <h3 class="card-title">Martin & Rose</h3>
                         <p class="card-text" style="font-size:110%;">Martin Dwyer's passion is for nature and wildlife,
                             his occupation is website development. Over the years, the digital photography from his
-                            nature adventues has provided great contenct for web development. This site is both an
-                            example of Martin's development work and a look inside the sites of his nature adventure.
-                            This website shares stories and pictures from his wildlife adventures with his wife Rose.
+                            nature adventues provides great content for website development. This site is both an
+                            example of Martin's development work and a look inside his nature adventures with his
+                            business partner and wife, Rose.<br /> <br />
+                            This website shares stories and pictures from their wildlife adventures targeted at
+                            capturing digital images of wild things in nature..
                             Together, they have visited some of the most exciting nature spots in North
-                            America.<br><br>For more information about Martin, Rose, or any place they have visited,
-                            please contact them at the form below.<br><br>If you are interested in more information
+                            America.<br /><br />For more information about Martin, Rose, or any place they have visited,
+                            please contact them at the contact page on this website.<br><br>If you are interested in
+                            more information
                             about website development or web applications, please visit <a href="https://mdbytes.com"
                                 data-slimstat="5">MD Bytes</a> and contact Martin.</p>
 
@@ -118,73 +142,52 @@
             <div class="col-md-6">
                 <div id="about_us_image" class="card">
                     <div class="card-body">
+                        <h3 class="card-title">From State Forest State Park</h3>
+                        <p class="card-subtitle">Lake Agnes, Colorado, Elevation 10,666'</p>
                         <p class="p-center-image"><img
                                 src="https://gowildthings.com/wp-content/uploads/2019/01/000-1.jpg"
                                 alt="about us image"></p>
-                        <p class="p-center-image">State Forest State Park, Colorado.<br>Temperature 20 degrees.</p>
+
                     </div>
                 </div>
             </div>
 
         </div>
         <div id="feature_photo" class="row">
-            <p class="p-full-image"><img
-                    src="https://gowildthings.com/wp-content/themes/wildthing/images/baby_bear_1600x533.jpg"
+            <h3 class="title">From Grand Teton National Park</h3>
+            <p class="subtitle">Jenny Lake Trail Head, Wyoming</p>
+            <p class="p-full-image"><img src="https://gowildthings.com/wp-content/uploads/2022/01/gtnp-scaled.jpeg"
                     alt="feature image"></p>
 
         </div>
-
 
         <div id="sixth_row" class="row">
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
+                        <h3 class="title">Alpine Ridge Trail</h3>
+                        <p class="subtitle">Rocky Mountain National Park</p>
                         <p class="p-center-image"><img
-                                src="https://gowildthings.com/wp-content/themes/wildthing/images/moose_350x350.png"
+                                src="https://gowildthings.com/wp-content/uploads/2022/01/rmnp-1.jpeg"
                                 alt="about us image" height="300"></p>
-                        <p class="p-center-image">State Forest State Park, Colorado</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="contact_us card-body">
-                        <h3 class="card-title">Contact Us</h3>
-                        <form action="https://gowildthings.com/wp-content/themes/wildthing/sending_message.php"
-                            method="post" id="contact-form">
-                            <div class="form-group">
-                                <label for="email_address">Email address</label>
-                                <input type="text" class="email required form-control" id="email_address"
-                                    name="email_address" placeholder="name@example.com">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="contact_message">Message</label>
-                                <textarea class="form-control" id="contact_message" name="contact_message"
-                                    rows="3"></textarea>
-                            </div>
-                            <button id="message_submit" name="submit-btn" type="submit"
-                                class="btn btn-primary mb-2">Send Message</button>
-                        </form>
 
                     </div>
                 </div>
-
             </div>
-            <div class="col-md-4">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
+                        <h3 class="title">Geothermals</h3>
+                        <p class="subtitle">Yellowstone National Park</p>
                         <p class="p-center-image"><img
-                                src="https://gowildthings.com/wp-content/themes/wildthing/images/buffalo_350x350.png"
+                                src="https://gowildthings.com/wp-content/uploads/2022/01/geoynp.jpeg"
                                 alt="about us image" height="300"></p>
-                        <p class="p-center-image">Yellowstone National Park, Wyoming</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>

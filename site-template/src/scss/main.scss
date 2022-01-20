@@ -18,11 +18,10 @@
 
 // Import sections
 @use "sections/navbar";
-@use "sections/intro-section";
-@use "sections/services";
+@use "sections/home";
+@use "sections/about";
+@use "sections/posts";
 @use "sections/privacy";
-@use "sections/testimonials";
-@use "sections/faq";
-@use "sections/portfolio";
-@use "sections/get-started";
+@use "sections/post";
+@use "sections/contact";
 @use "sections/footer";

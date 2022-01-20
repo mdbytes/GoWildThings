@@ -25,6 +25,10 @@ body {
     color: #ff6a00;
 }
 
+.company-font {
+    font-family: 'Irish Grover', cursive;
+}
+
 .display-2 {
     margin: 1rem 0;
     text-transform: capitalize;
@@ -121,7 +125,7 @@ body {
 }
 
 .goverlay {
-    opacity: 0.5;
+    opacity: 0.95;
 }
 
 #glightbox-body>div.gcontainer>button.gclose.gbtn,

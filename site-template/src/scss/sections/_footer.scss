@@ -157,10 +157,6 @@
     align-items: center;
     flex-direction: column;
 
-    h5 {
-      @include logoFontFamily;
-    }
-
     img {
       width: 25%;
       max-width: 75px;
@@ -238,6 +234,11 @@
         text-decoration: underline;
         font-weight: 700;
       }
+    }
+
+    .company-font {
+      font-size: 1.5rem;
+      color: $secondary;
     }
 
     .logo-style {

@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import GLightbox from "glightbox";
-import { NavLink } from "react-router-dom";
 const axios = require("axios");
 class PrivacyPage extends Component {
   constructor(props) {

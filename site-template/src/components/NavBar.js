@@ -27,7 +27,7 @@ class NavBar extends Component {
           <div className="container">
             <NavLink className="navbar-brand d-flex align-items-end" to="/">
               <img src={logo} alt="logo" />
-              <span className="logo-font">Wild Things Photography</span>
+              <span className="company-font">WildThings Photography</span>
             </NavLink>
             <button
               id="navToggler"
@@ -60,7 +60,7 @@ class NavBar extends Component {
                   <NavLink
                     id="servicesLink"
                     className="nav-link"
-                    to="/services"
+                    to="/about"
                     onClick={this.navClick}
                   >
                     About
@@ -71,22 +71,13 @@ class NavBar extends Component {
                   <NavLink
                     id="testimonialsLink"
                     className="nav-link"
-                    to="/adventures"
+                    to="/posts"
                     onClick={this.navClick}
                   >
                     Galleries
                   </NavLink>
                 </li>
-                <li className="nav-item d-flex align-items-center ">
-                  <NavLink
-                    id="portfolioLink"
-                    className="nav-link"
-                    to="/portfolio"
-                    onClick={this.navClick}
-                  >
-                    Gallery
-                  </NavLink>
-                </li>
+
                 <li className="nav-item d-flex align-items-center ">
                   <NavLink
                     id="contactLink"
@@ -96,6 +87,8 @@ class NavBar extends Component {
                   >
                     Contact
                   </NavLink>
+                </li>
+                <li className="nav-item d-flex align-items-center ">
                   <NavLink
                     id="privacyLink"
                     className="nav-link"

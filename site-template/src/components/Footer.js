@@ -7,7 +7,7 @@ const penny =
 class Footer extends Component {
   constructor(props) {
     super(props);
-    this.companyName = "Penguin Tours, Ltd.";
+    this.companyName = "WildThings Photography";
     this.backToTop = this.backToTop.bind(this);
   }
 
@@ -177,7 +177,7 @@ class Footer extends Component {
                 </div>
               </div>
               <div id="mascot-container" className="col-12 col-sm-4 col-lg-4">
-                <h5 className="">Wild Things Photography</h5>
+                <h5 className="company-font">WildThings Photography</h5>
                 <br />
                 <img src={penny} alt="Baby Tux" className="img-fluid" />
 
@@ -192,7 +192,7 @@ class Footer extends Component {
                 <div id="quick-links">
                   <NavLink to="/">Home</NavLink>
                   <span>|</span>
-                  <NavLink to="/services">About</NavLink>
+                  <NavLink to="/about">About</NavLink>
                   <span>|</span>
                   <NavLink to="/contact">Contact</NavLink>
                 </div>
@@ -205,7 +205,9 @@ class Footer extends Component {
               <div className="row text-center text-white">
                 <div className="col-12">
                   <div className="footer-bottom__copyright">
-                    &copy; Copyright 2021 {this.companyName} | Created by{" "}
+                    &copy; Copyright 2022{" "}
+                    <span className="company-font">{this.companyName}</span> |
+                    Created by{" "}
                     <a
                       href="https:/mdbytes.com"
                       target="_blank"
@@ -215,31 +217,6 @@ class Footer extends Component {
                       <span className="logo-style">md</span>
                       <span className="name-style">Bytes</span>
                     </a>
-                  </div>
-                  <div className="footer-bottom__copyright">
-                    <br />
-                    <p className="attribution">
-                      Photos for this site were used without attribution under
-                      either{" "}
-                      <a
-                        href="https://pixabay.com/service/license/"
-                        alt="pixabay"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Pixabay
-                      </a>{" "}
-                      or{" "}
-                      <a
-                        href="https://www.manypixels.co/gallery"
-                        alt="ManyPixels"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        ManyPixels
-                      </a>{" "}
-                      licenses.
-                    </p>
                   </div>
                 </div>
               </div>

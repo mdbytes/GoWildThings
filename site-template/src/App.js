@@ -10,27 +10,23 @@
  */
 
 // Import React components first
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
+// Import EmailJs for initiation
+import emailjs from "@emailjs/browser";
+import { EMAILJS_USER } from "./config/keys";
 
 // Import main site components
 import NavBar from "./components/NavBar";
 import ScrollToTop from "./components/ScrollToTop";
 import LandingPage from "./components/LandingPage";
-import ServicesPage from "./components/ServicesPage";
-import AdventuresPage from "./components/AdventuresPage";
-import PortfolioPage from "./components/PortfolioPage";
+import AboutPage from "./components/AboutPage";
+import PostsPage from "./components/PostsPage";
+import PostPage from "./components/PostPage";
 import ContactPage from "./components/ContactPage";
 import PrivacyPage from "./components/PrivacyPage";
 import Footer from "./components/Footer";
-
-// Import styling, which is compiled from Sass - customized Bootsrap v5.3
-import "glightbox/dist/css/glightbox.css";
-import "./css/main.css";
-
-// Import Bootstrap and GLightbox JavaScript
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import "glightbox/dist/js/glightbox.min.js";
 
 /**
  * Router set up to handle traffic on the website.
@@ -39,22 +35,41 @@ import "glightbox/dist/js/glightbox.min.js";
  *
  * @returns primary router component of the App
  */
-function App() {
-  return (
-    <div className="App">
-      <Router>
-        <ScrollToTop />
-        <NavBar />
-        <Route exact path="/" component={LandingPage} />
-        <Route exact path="/services" component={ServicesPage} />
-        <Route exact path="/adventures" component={AdventuresPage} />
-        <Route exact path="/portfolio" component={PortfolioPage} />
-        <Route exact path="/contact" component={ContactPage} />
-        <Route exact path="/privacy" component={PrivacyPage} />
-        <Footer />
-      </Router>
-    </div>
-  );
+class App extends Component {
+  componentDidMount() {
+    console.log("app props", this.props.posts);
+  }
+
+  render() {
+    emailjs.init(EMAILJS_USER);
+    return (
+      <div className="App">
+        <Router>
+          <ScrollToTop />
+          <NavBar />
+          <Route exact path="/">
+            <LandingPage posts={this.props.posts} />
+          </Route>
+          <Route exact path="/about">
+            <AboutPage />
+          </Route>
+          <Route exact path="/posts">
+            <PostsPage posts={this.props.posts} />
+          </Route>
+          <Route exact path="/post" posts={this.props.posts}>
+            <PostPage />
+          </Route>
+          <Route exact path="/contact">
+            <ContactPage />
+          </Route>
+          <Route exact path="/privacy">
+            <PrivacyPage />
+          </Route>
+          <Footer />
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;

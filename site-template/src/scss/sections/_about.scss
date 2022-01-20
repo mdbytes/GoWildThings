@@ -1,0 +1,139 @@
+/**
+ *
+ * Filename:  _services.scss
+ * Author:    Martin Dwyer
+ * Purpose:   Provides styling for the Services component
+ * Date Mod:  December 8, 2021
+ *
+ */
+
+
+@use "../custom"as *;
+@use "../components/mixins"as *;
+@use "../components/mixins";
+
+#about-us .card {
+    background-color: rgba(#fff, 0.8);
+    border-radius: 8px;
+}
+
+#aboutUsCarousel {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1000px;
+    animation: fadeIn;
+    animation-duration: 2s;
+}
+
+#fourth_row {
+    margin-top: 3rem;
+}
+
+#about_us.card {
+    height: 100%;
+}
+
+#about_us>div {
+    padding-top: 2rem;
+
+}
+
+#sixth_row,
+#feature_photo,
+#fourth_row .card {
+    animation: fadeIn;
+    animation-duration: 2s;
+    margin: 2rem auto;
+}
+
+#fourth_row>div:nth-child(2) {
+    @include media-breakpoint-down(md) {
+        width: 100% !important;
+        margin-top: 2rem !important;
+    }
+}
+
+#about_us_image {
+    height: 100%;
+
+
+
+
+
+}
+
+#about_us_image>div {}
+
+#sixth_row .card,
+#fourth_row .card {
+    border: none !important;
+}
+
+#fourth_row {
+    display: flex;
+}
+
+
+#feature_photo {
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+    width: 100%;
+    margin: 0 auto;
+    background-color: rgba(#fff, 0.8);
+    border-radius: 8px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+
+#feature_photo img {
+    width: 100%;
+    height: auto;
+}
+
+#sixth_row .title,
+#feature_photo>h3,
+#about-us .card-title {
+    text-align: center;
+    font-weight: 600;
+}
+
+#sixth_row .subtitle,
+#feature_photo>p.subtitle,
+#about-us .card-subtitle {
+    text-align: center;
+}
+
+#slider h2 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+#organizations h3 {
+    margin-top: 3rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+#organizations {
+    min-height: 15vh;
+}
+
+#about-us .container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.card-body .p-center-image img {
+    width: 100%;
+    height: auto;
+}
+
+#feature_photo>p>img {
+    width: 100%;
+    height: auto;
+}

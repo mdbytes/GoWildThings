@@ -7,7 +7,6 @@
  * Date Mod:  December 8, 2021
  *
  */
-@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=MuseoModerno:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -17296,6 +17295,14 @@ textarea.form-control-lg {
     opacity: 0;
   }
 }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .btn-rounded {
   position: relative;
   padding: 0.9375rem 4.375rem 0.9375rem 1.25rem;
@@ -17325,7 +17332,7 @@ textarea.form-control-lg {
   line-height: 2.5rem;
 }
 .btn-rounded:hover {
-  background: linear-gradient(147deg, #601d19 0%, #553c20 55%, #d05a52 70%, #80b55f 100%);
+  background: linear-gradient(147deg, #251a0e 0%, #553c20 40%, #b98346 70%, #80b55f 100%);
   color: #fff;
 }
 .btn-rounded:hover span {
@@ -17374,6 +17381,10 @@ body {
   color: #ff6a00;
 }
 
+.company-font {
+  font-family: "Irish Grover", cursive;
+}
+
 .display-2 {
   margin: 1rem 0;
   text-transform: capitalize;
@@ -17415,7 +17426,7 @@ body {
 }
 
 .gradient {
-  background: linear-gradient(147deg, #601d19 0%, #553c20 55%, #d05a52 70%, #80b55f 100%);
+  background: linear-gradient(147deg, #251a0e 0%, #553c20 40%, #b98346 70%, #80b55f 100%);
 }
 
 .heading-line::before {
@@ -17465,7 +17476,7 @@ body {
 }
 
 .goverlay {
-  opacity: 0.5;
+  opacity: 0.95;
 }
 
 #glightbox-body > div.gcontainer > button.gclose.gbtn,
@@ -17489,6 +17500,11 @@ button.gnext.gbtn {
   align-items: center;
   justify-content: center;
   flex-direction: row;
+}
+.menu .navbar-brand .company-font {
+  padding-left: 1.5rem;
+  font-size: 1.2rem;
+  align-self: center;
 }
 .menu .navbar-brand .logo-font {
   font-family: "Alegreya Sans SC", sans-serif;
@@ -17735,6 +17751,130 @@ button.gnext.gbtn {
  * Date Mod:  December 8, 2021
  *
  */
+#about-us .card {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+}
+
+#aboutUsCarousel {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1000px;
+  animation: fadeIn;
+  animation-duration: 2s;
+}
+
+#fourth_row {
+  margin-top: 3rem;
+}
+
+#about_us.card {
+  height: 100%;
+}
+
+#about_us > div {
+  padding-top: 2rem;
+}
+
+#sixth_row,
+#feature_photo,
+#fourth_row .card {
+  animation: fadeIn;
+  animation-duration: 2s;
+  margin: 2rem auto;
+}
+
+@media (max-width: 767.98px) {
+  #fourth_row > div:nth-child(2) {
+    width: 100% !important;
+    margin-top: 2rem !important;
+  }
+}
+
+#about_us_image {
+  height: 100%;
+}
+
+#sixth_row .card,
+#fourth_row .card {
+  border: none !important;
+}
+
+#fourth_row {
+  display: flex;
+}
+
+#feature_photo {
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
+  width: 100%;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+#feature_photo img {
+  width: 100%;
+  height: auto;
+}
+
+#sixth_row .title,
+#feature_photo > h3,
+#about-us .card-title {
+  text-align: center;
+  font-weight: 600;
+}
+
+#sixth_row .subtitle,
+#feature_photo > p.subtitle,
+#about-us .card-subtitle {
+  text-align: center;
+}
+
+#slider h2 {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+#organizations h3 {
+  margin-top: 3rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+#organizations {
+  min-height: 15vh;
+}
+
+#about-us .container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.card-body .p-center-image img {
+  width: 100%;
+  height: auto;
+}
+
+#feature_photo > p > img {
+  width: 100%;
+  height: auto;
+}
+
+/**
+ *
+ * Filename:  _services.scss
+ * Author:    Martin Dwyer
+ * Purpose:   Provides styling for the Services component
+ * Date Mod:  December 8, 2021
+ *
+ */
 .services {
   background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.4) 40%, rgba(255, 255, 255, 0.6) 60%, rgba(255, 255, 255, 0.8) 80%, white 100%);
   position: relative;
@@ -17745,30 +17885,18 @@ button.gnext.gbtn {
 .services .display-3 {
   color: #fff;
 }
-.services #services-intro-overview .service-items {
+.services #services-intro-overview p {
   color: #fff;
-}
-.services #services-intro-overview .service-items .service-item {
-  padding: 0.5em 0 0.5em 1em;
-  text-align: left;
-}
-.services #services-intro-overview .service-items .service-item div {
-  text-align: left;
-}
-.services #services-intro-overview .services-overview {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 2.2rem;
+  display: block;
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 2rem;
   border-radius: 8px;
-  color: #fff;
-  font-size: 1.2rem;
-  line-height: 1.7rem;
-}
-@media (max-width: 767.98px) {
-  .services #services-intro-overview {
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 8px;
-  }
-  .services #services-intro-overview > div {
-    border: none;
-  }
 }
 .services .service-item-row {
   margin-top: 3rem;
@@ -17779,6 +17907,17 @@ button.gnext.gbtn {
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 8px;
   box-shadow: 0px 0px 3.5rem rgba(255, 255, 255, 0.7);
+  animation: fadeIn;
+  animation-delay: 0s !important;
+  animation-duration: 3.5s !important;
+}
+@keyframes loadIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .services .services-column {
   margin: 0rem auto;
@@ -17842,7 +17981,7 @@ button.gnext.gbtn {
 }
 .services__content .learn-btn a:hover {
   box-shadow: 0 0 2rem rgba(128, 181, 95, 0.8);
-  background: linear-gradient(147deg, #0f1a28 0%, #2b5075 55%, #4878b4 70%, #f06418 100%);
+  background: linear-gradient(147deg, #251a0e 0%, #553c20 55%, #b98346 70%, #80b55f 100%);
   color: #fff;
 }
 .services__content .learn-btn a:hover i {
@@ -17891,145 +18030,6 @@ button.gnext.gbtn {
 }
 
 /**
- *
- * Filename:  _testimonials.scss
- * Author:    Martin Dwyer
- * Purpose:   Provides styling for the Testimonials component
- * Date Mod:  December 8, 2021
- *
- */
-.testimonials {
-  position: relative;
-  padding: 0;
-  padding-bottom: 4rem;
-}
-.testimonials #testimonials-bookmark {
-  padding-top: 12vh;
-}
-.testimonials__card {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 2rem 1.25rem;
-  border-radius: 0.625rem;
-  height: auto;
-  min-height: 25vh;
-  width: 80vw;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-.testimonials__card p {
-  font-size: 1.25rem;
-}
-.testimonials__card p i {
-  font-size: 1.5rem;
-  color: rgba(85, 60, 32, 0.7);
-}
-.testimonials__card .ratings i {
-  color: rgba(85, 60, 32, 0.7);
-  font-size: 1rem;
-  padding-top: 1rem;
-  margin-bottom: 2rem;
-}
-.testimonials__picture {
-  width: 6rem;
-  height: 6rem;
-  padding-top: 1.5rem;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.testimonials__picture img {
-  border: 0.325rem solid rgba(85, 60, 32, 0.7);
-}
-.testimonials__name {
-  padding-top: 4rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  font-weight: 500;
-  color: #fff;
-}
-.testimonials__name h3 {
-  padding-top: 0.8rem;
-  text-transform: capitalize;
-}
-.testimonials__name p {
-  padding-bottom: 2rem;
-  text-transform: capitalize;
-}
-.testimonials #carouselExampleCaptions > div button {
-  width: 6rem !important;
-  margin: 0.5rem !important;
-  background-color: #fff;
-  border: none;
-}
-.testimonials #carouselExampleCaptions > div button i {
-  color: #553c20;
-  font-size: 1.5rem;
-}
-.testimonials #carouselExampleCaptions > div button:hover {
-  background: linear-gradient(147deg, #601d19 0%, #553c20 55%, #d05a52 70%, #80b55f 100%);
-}
-.testimonials #carouselExampleCaptions > div button:hover i {
-  color: #fff;
-}
-.testimonials svg {
-  position: relative;
-}
-
-/**
- * Filename:  _faq.scss
- * Author:    Martin Dwyer
- * Purpose:   Provides styling for the Faq component
- * Date Mod:  December 8, 2021
- *
- */
-#faq {
-  padding-top: 15vh;
-}
-#faq .display-3 {
-  color: #fff;
-}
-#faq > div > div > p {
-  color: white;
-}
-#faq .heading-line {
-  margin-top: 1.5rem;
-  margin-bottom: 2rem;
-}
-#faq #faq-accordion {
-  width: 80%;
-  margin: 2rem auto;
-  max-width: 800px;
-}
-#faq #faq-accordion .accordion-item {
-  border-radius: 8px !important;
-  margin-bottom: 3rem;
-  box-shadow: 0px 0px 3rem #fff;
-  background-color: #fff;
-  opacity: 1 !important;
-}
-#faq #faq-accordion .accordion-button {
-  font-size: 1.2rem;
-  font-weight: 600;
-  border-bottom: 1px solid #553c20;
-}
-@media (max-width: 575.98px) {
-  #faq #faq-accordion .accordion-button {
-    font-size: 1rem;
-    font-weight: 400;
-  }
-}
-#faq #faq-accordion .accordion-body {
-  background-color: white;
-  text-align: left;
-}
-@media (max-width: 991.98px) {
-  #faq #faq-accordion {
-    width: 100%;
-  }
-}
-
-/**
  * Filename:  _portfolio.scss
  * Author:    Martin Dwyer
  * Purpose:   Provides styling for the portfolio component, noting
@@ -18038,42 +18038,70 @@ button.gnext.gbtn {
  * Date Mod:  December 8, 2021
  *
  */
-.portfolio {
+.post {
+  animation: fadeIn;
+  animation-duration: 3s;
+  display: flex;
+  flex-direction: column;
   padding: 4rem 0;
-  background: linear-gradient(rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.3) 20%, rgba(255, 255, 255, 0.5) 40%, rgba(255, 255, 255, 0.7) 60%, rgba(255, 255, 255, 0.9) 80%, white 100%);
 }
-.portfolio .portfolio-items {
+.post .post-text {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 3rem 1rem;
+  border-radius: 8px;
+  width: 90%;
+  margin: 0 auto;
+}
+.post .post-text h1,
+.post .post-text h2,
+.post .post-text h3,
+.post .post-text h4,
+.post .post-text h5,
+.post .post-text h6,
+.post .post-text p {
+  max-width: 1000px;
+  margin: 1rem auto;
+}
+.post .portfolio-items {
+  display: flex;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0rem;
+  animation: fadeIn;
+  animation-duration: 4s;
 }
-.portfolio .display-3 {
+.post .display-3 {
   color: #fff;
 }
-.portfolio .lead {
+.post .lead {
   color: #fff;
   margin-top: 2rem;
 }
-.portfolio .mobilePresent {
+.post .mobilePresent {
   color: #fff;
   font-weight: 700;
+  text-align: center;
+  margin-top: 2rem;
   display: none;
 }
 @media (max-width: 991.98px) {
-  .portfolio .mobilePresent {
+  .post .mobilePresent {
     display: block;
   }
 }
-.portfolio .largePresent {
+.post .largePresent {
   color: #fff;
   font-weight: 700;
+  text-align: center;
+  margin-top: 2rem;
   display: block;
 }
 @media (max-width: 991.98px) {
-  .portfolio .largePresent {
+  .post .largePresent {
     display: none;
   }
 }
-.portfolio button {
+.post button {
   text-transform: capitalize;
   margin-bottom: 2rem;
   margin-right: 1rem;
@@ -18144,14 +18172,17 @@ button.gnext.gbtn {
   color: #553c20;
   font-weight: 500;
   text-decoration: none;
-  background-color: #fff;
+  background-color: transparent;
+  background-repeat: no-repeat;
   border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
   border-radius: 8px;
-  box-shadow: 0 0 2rem #fff;
   padding: 0.5rem;
+  transition: 1s;
 }
 .portfolio-box .portfolio-info .caption button:hover {
-  font-weight: bolder;
   text-decoration: none;
   color: blue;
   text-decoration: underline;
@@ -18180,6 +18211,9 @@ button.gnext.gbtn {
  */
 .get-started {
   padding: 15vh 0 4rem 0;
+}
+.get-started div.container > div.row.text-white > div:nth-child(1) > div > h4 {
+  color: #553c20 !important;
 }
 .get-started .display-3 {
   color: #fff;
@@ -18217,15 +18251,15 @@ button.gnext.gbtn {
 }
 .get-started .cta-info p.lh-lg {
   color: #553c20;
-  font-weight: 500;
+  font-weight: 600;
 }
 .get-started .cta-info__list {
   position: relative;
-  list-style-type: lower-alpha;
+  list-style-type: disc;
   display: block;
   padding-top: 0.5rem;
   padding-left: 0.5rem;
-  margin-left: 1rem;
+  margin-left: 2rem;
   margin-bottom: 0.7rem;
 }
 .get-started .cta-info__list li {
@@ -18253,6 +18287,18 @@ button.gnext.gbtn {
 }
 .get-started #exampleModal .modal-body p {
   color: #000;
+}
+.get-started #exampleModal .modal-body a {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  color: #553c20;
+  font-weight: 700;
+  text-decoration: none;
+}
+.get-started #exampleModal .modal-body a:hover {
+  color: blue;
+  text-decoration: underline;
 }
 .get-started #exampleModal modal-footer button {
   color: #fff;
@@ -18386,9 +18432,6 @@ button.gnext.gbtn {
   align-items: center;
   flex-direction: column;
 }
-.footer-middle #mascot-container h5 {
-  font-family: "Alegreya Sans SC", sans-serif;
-}
 .footer-middle #mascot-container img {
   width: 25%;
   max-width: 75px;
@@ -18453,6 +18496,10 @@ button.gnext.gbtn {
   color: #fff;
   text-decoration: underline;
   font-weight: 700;
+}
+.footer-bottom__copyright .company-font {
+  font-size: 1.5rem;
+  color: #80b55f;
 }
 .footer-bottom__copyright .logo-style {
   font-family: "MuseoModerno", cursive;

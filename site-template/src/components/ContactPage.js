@@ -1,12 +1,27 @@
 import React, { Component } from "react";
-
-const logoCon =
-  "https://dm2306files.storage.live.com/y4mQ04FmkR-A2CPGkLG63pCI1ploGZrL9iWtm9FZxrGgC7ICLG2-hOElR3PXh61tX40hujpWu02hER9rYQanUCh6iO44yMSojF1jIn0LkcFLERPJh7wGAyym8t_v9289VI8SB0tqgHmghntBUvNzbvnbJwcOTloK5vwaTXUCS7K0bauneH2HwrF_D0x9prAsU2C?width=128&height=150&cropmode=none";
+import emailjs from "@emailjs/browser";
 
 class ContactPage extends Component {
-  state = {
-    timesRun: 0,
-  };
+  constructor(props) {
+    super(props);
+    this.sendEmail = this.sendEmail.bind(this);
+  }
+
+  sendEmail(e) {
+    e.preventDefault();
+    emailjs.sendForm("service_998jv3x", "template_gkvwqkc", e.target).then(
+      (result) => {
+        document.querySelector("#success-message").innerHTML =
+          "Thanks!  We will reply to your message within 24 hours.";
+        document.getElementById("form").reset();
+      },
+      (error) => {
+        document.querySelector("#error-message").innerHTML =
+          "A problem was incurred sending your message.  Please try again later.";
+        document.getElementById("form").reset();
+      }
+    );
+  }
 
   componentDidMount() {
     document.querySelector("#homeLink").classList.remove("active");
@@ -20,39 +35,37 @@ class ContactPage extends Component {
         <div className="container">
           <div className="row text-center">
             <h1 className="display-3 fw-bold text-capitalize">
-              Get Started
-              <img src={logoCon} alt="logo" />
+              Contact Us Today
             </h1>
             <div className="heading-line"></div>
-            <p className="lh-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-              optio aspernatur architecto?
-            </p>
+            <p className="lh-lg"></p>
           </div>
 
           <div className="row text-white">
             <div className="col-12 col-lg-6 ">
               <div className="cta-info w-100">
-                <h4 className="display-4 fw-bold">Satisfaction Guaranteed</h4>
+                <h4 className="display-3--title mb-5">
+                  WildThings Photography
+                </h4>
                 <p className="lh-lg">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Officia quaerat eos vel totam fuga alias ea labore eius, quae
-                  architecto accusantium.
+                  We strive to provide here on the website is a flavor of the
+                  photos we have gathered from exciting natural wildlife
+                  habitats.
                 </p>
-                <h3 className="display-3--brief">What is the next step?</h3>
+                <h3 className="display-3--brief">
+                  You might also be interested in:{" "}
+                </h3>
                 <ul className="cta-info__list">
-                  <li>Let us know you are interested</li>
-                  <li>We'll prepare a proposal</li>
-                  <li>
-                    We'll discuss the proposal and plan the trip of your dreams
-                  </li>
+                  <li>High quality digital images.</li>
+                  <li>Additional preview images.</li>
+                  <li>Travel recommendations for the sites we have visited.</li>
                 </ul>
               </div>
             </div>
             <div className="col-12 col-lg-6 ">
               <div className="form w-100 pb-2">
                 <h4 className="display-3--title mb-5">Plan Your Tour</h4>
-                <form action="#" className="row">
+                <form id="form" className="row">
                   <div className="col-lg-6 col-md-6 mb-3">
                     <input
                       type="text"
@@ -95,6 +108,8 @@ class ContactPage extends Component {
                     >
                       Submit <i className="fas fa-paper-plane"></i>
                     </button>
+                    <div id="success-message"></div>
+                    <div id="error-message"></div>
                   </div>
                 </form>
               </div>
@@ -125,16 +140,20 @@ class ContactPage extends Component {
                 </div>
                 <div className="modal-body text-black">
                   <p>
-                    Thanks for visiting Penguin Tours, a site used for
-                    demonstration purposes by MD Web Technologies.
+                    Thanks for visiting WildThings Photography, a site used for
+                    demonstration purposes by MD Bytes.
                   </p>
 
                   <p>
-                    If you would like to send us a message, visit us at{" "}
-                    <a href="https://mdbytes.com" target="_blank">
-                      www.mdbytes.com{" "}
+                    If you would like to send us a message, visit us at: <br />
+                    <br />{" "}
+                    <a
+                      href="https://mdbytes.com/contact"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      MD Bytes Contact Page{" "}
                     </a>
-                    .
                   </p>
 
                   <p>We look forward to hearing from you!</p>
