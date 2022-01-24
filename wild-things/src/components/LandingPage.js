@@ -32,7 +32,7 @@ class LandingPage extends Component {
               <NavLink
                 className="rounded-pill btn-rounded"
                 to={{
-                  pathname: "/adventures",
+                  pathname: "/posts",
                   aboutProps: { posts: this.props.posts },
                 }}
                 exact
