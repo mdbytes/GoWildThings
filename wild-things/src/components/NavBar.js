@@ -19,7 +19,12 @@ class NavBar extends Component {
     }
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    let pattern = /\/$/;
+    if (!pattern.test(window.location.href)) {
+      document.querySelector("#homeLink").classList.remove("active");
+    }
+  }
   render() {
     return (
       <div>

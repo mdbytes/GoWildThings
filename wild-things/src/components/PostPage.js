@@ -6,11 +6,32 @@ import parse from "html-react-parser";
 const PostPage = () => {
   const location = useLocation();
   console.log("location", location);
+  let postId;
+  let post;
+  let posts;
 
-  const post = location.aboutProps.posts.filter(
-    (post) => post.id === Number.parseInt(location.aboutProps.postId)
-  )[0];
+  if (location.aboutProps) {
+    posts = location.aboutProps.posts;
+    post = posts.filter(
+      (post) => post.id === Number.parseInt(location.aboutProps.postId)
+    )[0];
+    window.localStorage.setItem(
+      "posts",
+      JSON.stringify(location.aboutProps.posts)
+    );
+    window.localStorage.setItem(
+      "postId",
+      JSON.stringify(location.aboutProps.postId)
+    );
+  } else if (window.localStorage.getItem("posts")) {
+    posts = JSON.parse(window.localStorage.getItem("posts"));
+    postId = JSON.parse(window.localStorage.getItem("postId"));
+    post = posts.filter((post) => post.id === Number.parseInt(postId))[0];
+  } else {
+    window.location.href = "/posts";
+  }
 
+  const postIdString = "post-" + post.id;
   const content = post.content.rendered;
   const galleryBeginningIndex = content.indexOf(
     '<figure class="wp-block-image '
@@ -75,7 +96,9 @@ const PostPage = () => {
         </div>
       </div>
 
-      <div className="container post-text">{parse(mainContent)}</div>
+      <div className="container post-text" id={postIdString}>
+        {parse(mainContent)}
+      </div>
 
       <div className="container portfoio">
         <p className="mobilePresent">
