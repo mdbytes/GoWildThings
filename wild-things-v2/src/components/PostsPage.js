@@ -1,24 +1,69 @@
 import React, { Component } from "react";
 import PostsIntro from "./posts/PostsIntro";
 import Posts from "./posts/Posts";
-
+import axios from "axios";
+import { WP_REST_GET_POSTS_URL } from "../config/keys";
+import SeoOptimized from "./SeoOptimized";
 class PostsPage extends Component {
+  state = {
+    posts: [],
+  };
+
   componentDidMount() {
-    console.log("PostsPage Props: ", this.props);
-    document.querySelector("#homeLink").classList.remove("active");
+    let blogPosts = [];
+    axios.get(WP_REST_GET_POSTS_URL).then((response) => {
+      blogPosts = response.data;
+      for (let blog of blogPosts) {
+        blog.excerpt.rendered = blog.excerpt.rendered
+          .replace(/(^"|"$)/g, "")
+          .replace("[", "")
+          .replace("]", "");
+      }
+      this.setState({ posts: blogPosts });
+      console.log("state", this.state);
+    });
   }
 
   componentDidUpdate() {}
 
   render() {
-    return (
-      <section id="services" className="services">
-        <div className="container">
-          <PostsIntro />
-          <Posts posts={this.props.posts} />
-        </div>
-      </section>
-    );
+    if (this.state.posts !== []) {
+      return (
+        <section
+          id="services"
+          className="services"
+          style={{ minHeight: "100vh" }}
+        >
+          <SeoOptimized title="Galleries" />
+          <div className="container">
+            <PostsIntro />
+            <Posts posts={this.state.posts} />
+          </div>
+        </section>
+      );
+    } else {
+      return (
+        <section id="services" className="services">
+          <div className="container">
+            {" "}
+            <div
+              style={{
+                height: "30vh",
+                marginTop: 175,
+                color: "black",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              id="locating-post"
+            >
+              Retrieving Posts...
+            </div>
+          </div>
+        </section>
+      );
+    }
   }
 }
 

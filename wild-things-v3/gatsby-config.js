@@ -1,9 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `WildThings Photography`,
+    description: `A site demo from MD Web Technologies featuring the wildlife photography of Martin and Rose Dwyer.`,
+    titleTemplate: `%s | WildThings`,
+    url: `http://localhost:8000`,
+    author: `Martin Dwyer`,
+    twitterUsername: `@mdbytes`,
+    image: `/main-image.png`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

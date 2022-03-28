@@ -1,31 +1,35 @@
 import * as React from "react"
+
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import Landing from "../components/Landing"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import getPosts from "../api/getPosts"
+import { useContext, useEffect } from "react"
+import Layout from "../components/Layout"
+import Seo from "../components/Seo"
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["auto", "webp", "avif"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link> <br />
-      <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
-      <Link to="/using-dsg">Go to "Using DSG"</Link>
-    </p>
-  </Layout>
-)
+import {
+  GlobalDispatchContext,
+  GlobalStateContext,
+} from "../context/GlobalContextProvider"
+
+const IndexPage = () => {
+  const dispatch = useContext(GlobalDispatchContext)
+  const state = useContext(GlobalStateContext)
+
+  useEffect(() => {
+    if (state.posts.length === 0) {
+      getPosts(dispatch)
+    }
+  }, [])
+  console.log("state", state)
+  return (
+    <Layout>
+      <Seo title="Home" />
+      <Landing posts={state.posts} />
+    </Layout>
+  )
+}
 
 export default IndexPage

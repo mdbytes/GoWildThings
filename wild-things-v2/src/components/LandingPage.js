@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import SeoOptimized from "./SeoOptimized";
 
 class LandingPage extends Component {
   componentDidMount() {
@@ -9,6 +10,7 @@ class LandingPage extends Component {
   render() {
     return (
       <section id="home" className="intro-section">
+        <SeoOptimized title="Home" />
         <div className="container">
           <div className="col-lg-12 intros">
             <div id="intro">

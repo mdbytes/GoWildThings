@@ -49,7 +49,7 @@ class Footer extends Component {
                   <div id="social-icons" className="row ">
                     <a
                       className="col"
-                      href="http://facebook.com"
+                      href="https://www.facebook.com/mdbytes"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -57,7 +57,7 @@ class Footer extends Component {
                     </a>
                     <a
                       className="col"
-                      href="http://twitter.com"
+                      href="https://twitter.com/mdbytes"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -65,7 +65,7 @@ class Footer extends Component {
                     </a>
                     <a
                       className="col"
-                      href="http://github.com"
+                      href="https://github.com/martindwyer"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -73,7 +73,7 @@ class Footer extends Component {
                     </a>
                     <a
                       className="col"
-                      href="http://linkedin.com"
+                      href="https://www.linkedin.com/in/mdbytes/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -110,6 +110,8 @@ class Footer extends Component {
                   <span>|</span>
                   <NavLink to="/about">About</NavLink>
                   <span>|</span>
+                  <NavLink to="/posts">Galleries</NavLink>
+                  <span>|</span>
                   <NavLink to="/contact">Contact</NavLink>
                 </div>
               </div>
@@ -125,7 +127,7 @@ class Footer extends Component {
                     <span className="company-font">{this.companyName}</span> |
                     Created by{" "}
                     <a
-                      href="https:/mdbytes.com"
+                      href="https://mdbytes.com"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

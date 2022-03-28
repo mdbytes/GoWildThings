@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import React, { Component } from "react"
+import { Link } from "gatsby"
 
-class LandingPage extends Component {
+class Landing extends Component {
   componentDidMount() {
-    console.log("landing page props", this.props);
+    console.log("landing page props", this.props)
   }
 
   render() {
@@ -29,25 +29,18 @@ class LandingPage extends Component {
                 </a>
               </span>
 
-              <NavLink
-                className="rounded-pill btn-rounded"
-                to={{
-                  pathname: "/posts",
-                  aboutProps: { posts: this.props.posts },
-                }}
-                exact
-              >
+              <Link to="/posts">
                 Galleries{" "}
                 <span>
                   <i className="bi bi-images"></i>
                 </span>
-              </NavLink>
+              </Link>
             </div>
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default LandingPage;
+export default Landing

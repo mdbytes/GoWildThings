@@ -1,31 +1,31 @@
-import React, { Component } from "react";
-const axios = require("axios");
-class PrivacyPage extends Component {
+import React, { Component } from "react"
+const axios = require("axios")
+class Privacy extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       posts: [],
-    };
+    }
   }
 
   componentDidMount() {
     if (this.props.posts) {
       this.setState({
         posts: this.props.posts,
-      });
+      })
     } else {
       axios
         .get("https://gowildthings.com/wp-json/wp/v2/posts?_embed")
-        .then((response) => {
-          console.log(response.data);
-          this.setState({ posts: response.data });
-        });
+        .then(response => {
+          console.log(response.data)
+          this.setState({ posts: response.data })
+        })
     }
   }
 
   componentDidUpdate() {
-    console.log("state:", this.state.posts);
+    console.log("state:", this.state.posts)
   }
 
   render() {
@@ -158,8 +158,8 @@ class PrivacyPage extends Component {
           </ol>
         </div>{" "}
       </section>
-    );
+    )
   }
 }
 
-export default PrivacyPage;
+export default Privacy

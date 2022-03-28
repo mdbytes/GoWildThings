@@ -1,38 +1,11 @@
-import React, { Component } from "react";
-import GLightbox from "glightbox";
+import React, { Component } from "react"
 
 class PortfolioItem extends Component {
   constructor(props) {
-    super(props);
-    this.displayGallery = this.displayGallery.bind(this);
+    super(props)
+    this.displayGallery = this.props.displayGallery
   }
 
-  displayGallery = (evt) => {
-    console.dir(evt.target);
-
-    let targetButtonClass = evt.target.className;
-
-    let startingSlide = 0;
-
-    startingSlide = Number.parseInt(
-      targetButtonClass.replace("photo-", "").replace(" glightbox", "")
-    );
-
-    const myGallery = GLightbox({
-      elements: this.props.elements,
-      autoplayVideos: false,
-      startAt: startingSlide,
-      openEffect: "fade",
-      closeEffect: "fade",
-      zoomable: "true",
-    });
-
-    myGallery.on("close", () => {
-      myGallery.close();
-    });
-
-    myGallery.open();
-  };
   render() {
     return (
       <React.Fragment>
@@ -51,7 +24,7 @@ class PortfolioItem extends Component {
                   className={
                     "photo-" + this.props.obj.slideLocation + " glightbox"
                   }
-                  onClick={this.displayGallery}
+                  onClick={this.props.displayGallery}
                 >
                   Display In Gallery
                 </button>
@@ -60,8 +33,8 @@ class PortfolioItem extends Component {
           </div>
         </div>
       </React.Fragment>
-    );
+    )
   }
 }
 
-export default PortfolioItem;
+export default PortfolioItem

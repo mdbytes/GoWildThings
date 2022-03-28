@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import emailjs from "@emailjs/browser";
+import SeoOptimized from "./SeoOptimized";
 
 class ContactPage extends Component {
   constructor(props) {
@@ -32,6 +33,7 @@ class ContactPage extends Component {
   render() {
     return (
       <section id="contact" className="get-started">
+        <SeoOptimized title="Contact" />
         <div className="container">
           <div className="row text-center">
             <h1 className="display-3 fw-bold text-capitalize">

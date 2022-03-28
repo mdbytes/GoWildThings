@@ -19,13 +19,7 @@ class Posts extends Component {
                 <span className="lh-lg">{parse(post.excerpt.rendered)}</span>
                 <div className="learn-btn">
                   <NavLink
-                    to={{
-                      pathname: "/post",
-                      aboutProps: {
-                        posts: this.props.posts,
-                        postId: post.id,
-                      },
-                    }}
+                    to={`/post/${post.id}`}
                     exact
                     type="button"
                     className="rounded-pill btn-rounded border-primary"
@@ -40,16 +34,7 @@ class Posts extends Component {
             </div>
             <div className="col-lg-6 col-sm-12 col-xs-12  services-column">
               <div className="services__pic">
-                <NavLink
-                  to={{
-                    pathname: "/post",
-                    aboutProps: {
-                      posts: this.props.posts,
-                      postId: post.id,
-                    },
-                  }}
-                  exact
-                >
+                <NavLink to={`/post/${post.id}`} exact>
                   <img
                     src={post._embedded["wp:featuredmedia"][0].source_url}
                     alt="UI Design"

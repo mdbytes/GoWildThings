@@ -1,28 +1,29 @@
-import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import React, { Component } from "react"
+
+import { Link } from "gatsby"
 
 const logo =
-  "https://gowildthings.com/wp-content/uploads/2022/01/logo-small.png";
+  "https://gowildthings.com/wp-content/uploads/2022/01/logo-small.png"
 
 class NavBar extends Component {
   constructor(props) {
-    super(props);
-    this.navClick = this.navClick.bind(this);
+    super(props)
+    this.navClick = this.navClick.bind(this)
   }
 
-  navClick = (evt) => {
-    document.querySelector("#navToggler").click();
+  navClick = evt => {
+    document.querySelector("#navToggler").click()
     if (evt.target.getAttribute("id") !== "homeLink") {
-      document.querySelector("#homeLink").classList.remove("active");
+      document.querySelector("#homeLink").classList.remove("active")
     } else {
-      document.querySelector("#homeLink").classList.add("active");
+      document.querySelector("#homeLink").classList.add("active")
     }
-  };
+  }
 
   componentDidMount() {
-    let pattern = /\/$/;
+    let pattern = /\/$/
     if (!pattern.test(window.location.href)) {
-      document.querySelector("#homeLink").classList.remove("active");
+      document.querySelector("#homeLink").classList.remove("active")
     }
   }
   render() {
@@ -30,10 +31,9 @@ class NavBar extends Component {
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark menu fixed-top">
           <div className="container">
-            <NavLink className="navbar-brand d-flex align-items-end" to="/">
-              <img src={logo} alt="logo" />
-              <span className="company-font">WildThings Photography</span>
-            </NavLink>
+            <img src={logo} alt="logo" />
+            <span className="company-font">WildThings Photography</span>
+
             <button
               id="navToggler"
               className="navbar-toggler"
@@ -52,64 +52,69 @@ class NavBar extends Component {
             >
               <ul className="navbar-nav">
                 <li className="nav-item d-flex align-items-center ">
-                  <NavLink
+                  <Link
                     id="homeLink"
                     className="nav-link"
                     to="/"
                     onClick={this.navClick}
                   >
-                    Home
-                  </NavLink>
+                    {" "}
+                    Home{" "}
+                  </Link>
                 </li>
                 <li className="nav-item d-flex align-items-center ">
-                  <NavLink
+                  <Link
                     id="servicesLink"
                     className="nav-link"
                     to="/about"
                     onClick={this.navClick}
                   >
-                    About
-                  </NavLink>
+                    {" "}
+                    About{" "}
+                  </Link>
                 </li>
 
                 <li className="nav-item d-flex align-items-center ">
-                  <NavLink
+                  <Link
                     id="testimonialsLink"
                     className="nav-link"
                     to="/posts"
                     onClick={this.navClick}
                   >
-                    Galleries
-                  </NavLink>
+                    {" "}
+                    Galleries{" "}
+                  </Link>
                 </li>
 
                 <li className="nav-item d-flex align-items-center ">
-                  <NavLink
+                  <Link
                     id="contactLink"
                     className="nav-link"
                     to="/contact"
                     onClick={this.navClick}
                   >
-                    Contact
-                  </NavLink>
+                    {" "}
+                    Contact{" "}
+                  </Link>
                 </li>
                 <li className="nav-item d-flex align-items-center ">
-                  <NavLink
+                  <Link
                     id="privacyLink"
                     className="nav-link"
                     to="/privacy"
                     onClick={this.navClick}
                   >
-                    Privacy
-                  </NavLink>
+                    {" "}
+                    Privacy{" "}
+                  </Link>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
       </div>
-    );
+    )
   }
 }
 
-export default NavBar;
+export default NavBar

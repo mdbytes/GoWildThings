@@ -11,13 +11,11 @@
 
 // Import React components first
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Import EmailJs for initiation
 import emailjs from "@emailjs/browser";
 import { EMAILJS_USER } from "./config/keys";
-import { WP_REST_GET_POSTS_URL } from "./config/keys";
-import axios from "axios";
 
 // Import main site components
 import NavBar from "./components/NavBar";
@@ -29,6 +27,7 @@ import PostPage from "./components/PostPage";
 import ContactPage from "./components/ContactPage";
 import PrivacyPage from "./components/PrivacyPage";
 import Footer from "./components/Footer";
+import NotFound from "./components/NotFound";
 
 /**
  * Router set up to handle traffic on the website.
@@ -38,23 +37,6 @@ import Footer from "./components/Footer";
  * @returns primary router component of the App
  */
 class App extends Component {
-  state = { posts: [], selectedPost: "" };
-
-  componentDidMount() {
-    let blogPosts = [];
-    axios.get(WP_REST_GET_POSTS_URL).then((response) => {
-      blogPosts = response.data;
-      for (let blog of blogPosts) {
-        blog.excerpt.rendered = blog.excerpt.rendered
-          .replace(/(^"|"$)/g, "")
-          .replace("[", "")
-          .replace("]", "");
-      }
-      this.setState({ posts: blogPosts });
-      console.log("state", this.state);
-    });
-  }
-
   render() {
     emailjs.init(EMAILJS_USER);
     return (
@@ -62,24 +44,29 @@ class App extends Component {
         <Router>
           <ScrollToTop />
           <NavBar />
-          <Route exact path="/">
-            <LandingPage posts={this.state.posts} />
-          </Route>
-          <Route exact path="/about">
-            <AboutPage />
-          </Route>
-          <Route exact path="/posts">
-            <PostsPage posts={this.state.posts} />
-          </Route>
-          <Route exact path="/post" posts={this.state.posts}>
-            <PostPage />
-          </Route>
-          <Route exact path="/contact">
-            <ContactPage />
-          </Route>
-          <Route exact path="/privacy">
-            <PrivacyPage />
-          </Route>
+          <Switch>
+            <Route exact path="/">
+              <LandingPage />
+            </Route>
+            <Route exact path="/about">
+              <AboutPage />
+            </Route>
+            <Route exact path="/posts">
+              <PostsPage />
+            </Route>
+            <Route exact path="/post/:id">
+              <PostPage />
+            </Route>
+            <Route exact path="/contact">
+              <ContactPage />
+            </Route>
+            <Route exact path="/privacy">
+              <PrivacyPage />
+            </Route>
+            <Route>
+              <NotFound />
+            </Route>
+          </Switch>
           <Footer />
         </Router>
       </div>

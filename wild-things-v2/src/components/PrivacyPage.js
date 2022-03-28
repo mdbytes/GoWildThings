@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import SeoOptimized from "./SeoOptimized";
+
 const axios = require("axios");
+
 class PrivacyPage extends Component {
   constructor(props) {
     super(props);
@@ -31,6 +34,7 @@ class PrivacyPage extends Component {
   render() {
     return (
       <section id="privacy-page" className="privacy">
+        <SeoOptimized title="Privacy" />
         <div id="privacy-info" className="container">
           <h3>Your Privacy</h3>
           <p className="privacy-intro">

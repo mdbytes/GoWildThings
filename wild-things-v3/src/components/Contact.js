@@ -1,30 +1,30 @@
-import React, { Component } from "react";
-import emailjs from "@emailjs/browser";
+import React, { Component } from "react"
+import emailjs from "@emailjs/browser"
 
-class ContactPage extends Component {
+class Contact extends Component {
   constructor(props) {
-    super(props);
-    this.sendEmail = this.sendEmail.bind(this);
+    super(props)
+    this.sendEmail = this.sendEmail.bind(this)
   }
 
   sendEmail(e) {
-    e.preventDefault();
+    e.preventDefault()
     emailjs.sendForm("service_998jv3x", "template_gkvwqkc", e.target).then(
-      (result) => {
+      result => {
         document.querySelector("#success-message").innerHTML =
-          "Thanks!  We will reply to your message within 24 hours.";
-        document.getElementById("form").reset();
+          "Thanks!  We will reply to your message within 24 hours."
+        document.getElementById("form").reset()
       },
-      (error) => {
+      error => {
         document.querySelector("#error-message").innerHTML =
-          "A problem was incurred sending your message.  Please try again later.";
-        document.getElementById("form").reset();
+          "A problem was incurred sending your message.  Please try again later."
+        document.getElementById("form").reset()
       }
-    );
+    )
   }
 
   componentDidMount() {
-    document.querySelector("#homeLink").classList.remove("active");
+    document.querySelector("#homeLink").classList.remove("active")
   }
 
   componentWillUnmount() {}
@@ -172,8 +172,8 @@ class ContactPage extends Component {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default ContactPage;
+export default Contact

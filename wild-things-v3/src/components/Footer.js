@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import React, { Component } from "react"
+import { Link } from "gatsby"
 
 const penny =
-  "https://gowildthings.com/wp-content/uploads/2022/01/logo-small.png";
+  "https://gowildthings.com/wp-content/uploads/2022/01/logo-small.png"
 
 class Footer extends Component {
   constructor(props) {
-    super(props);
-    this.companyName = "WildThings Photography";
-    this.backToTop = this.backToTop.bind(this);
+    super(props)
+    this.companyName = "WildThings Photography"
+    this.backToTop = this.backToTop.bind(this)
   }
 
   backToTop = () => {
-    console.log("back to top");
-    window.scrollTo(0, 0);
-  };
+    console.log("back to top")
+    window.scrollTo(0, 0)
+  }
 
   componentDidMount() {}
 
@@ -106,11 +106,11 @@ class Footer extends Component {
               <div id="site-menu" className="col-12 col-sm-4 col-lg-4">
                 <h5>Quick Links</h5>
                 <div id="quick-links">
-                  <NavLink to="/">Home</NavLink>
+                  <Link to="/">Home</Link>
                   <span>|</span>
-                  <NavLink to="/about">About</NavLink>
+                  <Link to="/about">About</Link>
                   <span>|</span>
-                  <NavLink to="/contact">Contact</NavLink>
+                  <Link to="/contact">Contact</Link>
                 </div>
               </div>
             </div>
@@ -146,8 +146,8 @@ class Footer extends Component {
           <i className="bi bi-chevron-up"></i>
         </button>
       </div>
-    );
+    )
   }
 }
 
-export default Footer;
+export default Footer
