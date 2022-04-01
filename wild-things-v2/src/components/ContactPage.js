@@ -33,7 +33,7 @@ class ContactPage extends Component {
   render() {
     return (
       <section id="contact" className="get-started">
-        <SeoOptimized title="Contact" />
+        <SeoOptimized title="Contact Us Today" />
         <div className="container">
           <div className="row text-center">
             <h1 className="display-3 fw-bold text-capitalize">

@@ -11,12 +11,12 @@ class Posts extends Component {
     return (
       <div id="adventures" className="service-objects">
         {this.props.posts.map((post) => (
-          <div className="row service-item-row" key={post.id}>
+          <div className="row service-item-row" key={post.postId}>
             <div className="col-lg-6 col-sm-12 col-xs-12 services-column">
               <div className="services__content">
                 <div className="icon fas fa-paper-plane d-block"></div>
-                <h3 className="display-3--title">{post.title.rendered}</h3>
-                <span className="lh-lg">{parse(post.excerpt.rendered)}</span>
+                <h3 className="display-3--title">{post.title}</h3>
+                <span className="lh-lg">{parse(post.excerpt)}</span>
                 <div className="learn-btn">
                   <NavLink
                     to={`/post/${post.id}`}
@@ -36,7 +36,7 @@ class Posts extends Component {
               <div className="services__pic">
                 <NavLink to={`/post/${post.id}`} exact>
                   <img
-                    src={post._embedded["wp:featuredmedia"][0].source_url}
+                    src={post.featuredImage.node.sourceUrl}
                     alt="UI Design"
                     className="img-fluid"
                   />

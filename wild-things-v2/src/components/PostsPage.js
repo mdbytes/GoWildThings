@@ -10,21 +10,55 @@ class PostsPage extends Component {
   };
 
   componentDidMount() {
-    let blogPosts = [];
-    axios.get(WP_REST_GET_POSTS_URL).then((response) => {
-      blogPosts = response.data;
-      for (let blog of blogPosts) {
-        blog.excerpt.rendered = blog.excerpt.rendered
-          .replace(/(^"|"$)/g, "")
-          .replace("[", "")
-          .replace("]", "");
+    const getPosts = async () => {
+      let blogPosts = [];
+      let query = `
+      query AllPostQuery {
+        posts {
+          nodes {
+            id
+            slug
+            postId
+            title(format: RENDERED)
+            content(format: RENDERED)
+            excerpt(format: RENDERED)
+            featuredImage {
+              node {
+                sourceUrl
+              }
+            }
+          }
+        }
+      }`;
+      const response = await axios.post(
+        "https://wildthings.wp.mdbytes.us/graphql",
+
+        { query: query },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      console.log("response", response);
+      blogPosts = response.data.data.posts.nodes;
+      console.log("blogposts", blogPosts);
+      if (blogPosts) {
+        for (let blog of blogPosts) {
+          blog.excerpt = blog.excerpt
+            .replace(/(^"|"$)/g, "")
+            .replace("[", "")
+            .replace("]", "");
+        }
       }
+
       this.setState({ posts: blogPosts });
       console.log("state", this.state);
-    });
-  }
+    };
 
-  componentDidUpdate() {}
+    getPosts();
+  }
 
   render() {
     if (this.state.posts !== []) {
@@ -34,7 +68,7 @@ class PostsPage extends Component {
           className="services"
           style={{ minHeight: "100vh" }}
         >
-          <SeoOptimized title="Galleries" />
+          <SeoOptimized title="Nature Adventures" />
           <div className="container">
             <PostsIntro />
             <Posts posts={this.state.posts} />

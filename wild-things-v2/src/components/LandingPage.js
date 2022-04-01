@@ -10,7 +10,7 @@ class LandingPage extends Component {
   render() {
     return (
       <section id="home" className="intro-section">
-        <SeoOptimized title="Home" />
+        <SeoOptimized title="Wild Things Photography" />
         <div className="container">
           <div className="col-lg-12 intros">
             <div id="intro">

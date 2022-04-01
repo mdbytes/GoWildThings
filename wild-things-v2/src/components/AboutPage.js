@@ -10,7 +10,7 @@ class AboutPage extends Component {
   render() {
     return (
       <section id="about-page" className="about-page">
-        <SeoOptimized title="About" />
+        <SeoOptimized title="About Martin & Rose" />
         <div className="container">
           <AboutIntro />
           <AboutContent />

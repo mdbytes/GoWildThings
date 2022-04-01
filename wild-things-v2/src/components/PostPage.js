@@ -16,25 +16,43 @@ const PostPage = () => {
 
   useEffect(() => {
     const getPost = async () => {
-      let blogPost;
-      let url = WP_REST_GET_POST_BASE_URL + id;
-      try {
-        const response = await axios.get(url);
-        console.log("response data", response.data);
-        blogPost = response.data;
-        blogPost.excerpt.rendered = blogPost.excerpt.rendered
-          .replace(/(^"|"$)/g, "")
-          .replace("[", "")
-          .replace("]", "");
-        setPost(blogPost);
-      } catch (err) {
-        document.querySelector("#locating-post").innerHTML =
-          "<h1>Post Not Found</h1><p>Redirecting to Home Page</p>";
+      let query = `
+        query SinglePost($id: ID!) {
+          post(id: $id) {
+              postId
+              title
+              slug
+              content
+              excerpt
+              featuredImage {
+                  node {
+                      sourceUrl
+                  }
+              }
+          }
+      }`;
 
-        setTimeout(() => {
-          window.location.replace("/");
-        }, 3000);
-      }
+      const response = await axios.post(
+        "https://wildthings.wp.mdbytes.us/graphql",
+
+        { query: query, variables: { id: id } },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      console.log(response);
+
+      response.data.data.post.excerpt = response.data.data.post.excerpt
+        .replace(/(^"|"$)/g, "")
+        .replace("[", "")
+        .replace("]", "");
+
+      setPost(response.data.data.post);
+
+      console.log("post", post);
     };
 
     getPost();
@@ -44,7 +62,7 @@ const PostPage = () => {
 
   if (post) {
     postIdString = "post-" + post.id;
-    const content = post.content.rendered;
+    const content = post.content;
     const galleryBeginningIndex = content.indexOf(
       '<figure class="wp-block-image '
     );
@@ -118,9 +136,7 @@ const PostPage = () => {
         <SeoOptimized title="Gallery" />
         <div className="container">
           <div className="row text-center mt-5">
-            <h1 className="display-3 fw-bold text-capitalize">
-              {post.title.rendered}
-            </h1>
+            <h1 className="display-3 fw-bold text-capitalize">{post.title}</h1>
             <div className="heading-line"></div>
           </div>
         </div>

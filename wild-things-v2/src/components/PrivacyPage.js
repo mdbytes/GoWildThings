@@ -34,7 +34,7 @@ class PrivacyPage extends Component {
   render() {
     return (
       <section id="privacy-page" className="privacy">
-        <SeoOptimized title="Privacy" />
+        <SeoOptimized title="Your Privacy" />
         <div id="privacy-info" className="container">
           <h3>Your Privacy</h3>
           <p className="privacy-intro">
