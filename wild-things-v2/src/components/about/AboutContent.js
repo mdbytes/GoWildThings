@@ -10,7 +10,7 @@ class AboutContent extends Component {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src="https://gowildthings.com/wp-content/themes/wildthing/images/slide1_1600x533.jpg"
+                src="https://wildthings.wp.mdbytes.us/wp-content/themes/wildthing/images/slide1_1600x533.jpg"
                 alt="First slide"
               />
               <Carousel.Caption>
@@ -21,7 +21,7 @@ class AboutContent extends Component {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src="https://gowildthings.com/wp-content/themes/wildthing/images/slide2_1600x533.jpg"
+                src="https://wildthings.wp.mdbytes.us/wp-content/themes/wildthing/images/slide2_1600x533.jpg"
                 alt="Second slide"
               />
               <Carousel.Caption>
@@ -32,7 +32,7 @@ class AboutContent extends Component {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src="https://gowildthings.com/wp-content/themes/wildthing/images/slide3_1600x533.jpg"
+                src="https://wildthings.wp.mdbytes.us/wp-content/themes/wildthing/images/slide3_1600x533.jpg"
                 alt="Third slide"
               />
 
@@ -44,7 +44,7 @@ class AboutContent extends Component {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src="https://gowildthings.com/wp-content/themes/wildthing/images/slide4_1600x533.jpg"
+                src="https://wildthings.wp.mdbytes.us/wp-content/themes/wildthing/images/slide4_1600x533.jpg"
                 alt="Fourth slide"
               />
 
@@ -95,7 +95,7 @@ class AboutContent extends Component {
                 </p>
                 <p className="p-center-image">
                   <img
-                    src="https://gowildthings.com/wp-content/uploads/2019/01/000-1.jpg"
+                    src="https://wildthings.wp.mdbytes.us/wp-content/uploads/2019/01/000-1.jpg"
                     alt="about us"
                   />
                 </p>
@@ -108,7 +108,7 @@ class AboutContent extends Component {
           <p className="subtitle">Jenny Lake Trail Head, Wyoming</p>
           <p className="p-full-image">
             <img
-              src="https://gowildthings.com/wp-content/uploads/2022/01/gtnp-scaled.jpeg"
+              src="https://wildthings.wp.mdbytes.us/wp-content/uploads/2022/01/gtnp-scaled.jpeg"
               alt="feature"
             />
           </p>
@@ -122,7 +122,7 @@ class AboutContent extends Component {
                 <p className="subtitle">Rocky Mountain National Park</p>
                 <p className="p-center-image">
                   <img
-                    src="https://gowildthings.com/wp-content/uploads/2022/01/rmnp-1.jpeg"
+                    src="https://wildthings.wp.mdbytes.us/wp-content/uploads/2022/01/rmnp-1.jpeg"
                     alt="about us"
                     height="300"
                   />
@@ -137,7 +137,7 @@ class AboutContent extends Component {
                 <p className="subtitle">Yellowstone National Park</p>
                 <p className="p-center-image">
                   <img
-                    src="https://gowildthings.com/wp-content/uploads/2022/01/geoynp.jpeg"
+                    src="https://wildthings.wp.mdbytes.us/wp-content/uploads/2022/01/geoynp.jpeg"
                     alt="about us"
                     height="300"
                   />

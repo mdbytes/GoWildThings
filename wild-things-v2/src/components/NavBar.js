@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
 const logo =
-  "https://gowildthings.com/wp-content/uploads/2022/01/logo-small.png";
+  "https://wildthings.wp.mdbytes.us/wp-content/uploads/2022/01/logo-small.png";
 
 class NavBar extends Component {
   constructor(props) {

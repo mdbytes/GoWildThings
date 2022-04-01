@@ -19,7 +19,7 @@ class PrivacyPage extends Component {
       });
     } else {
       axios
-        .get("https://gowildthings.com/wp-json/wp/v2/posts?_embed")
+        .get("https://wildthings.wp.mdbytes.us/wp-json/wp/v2/posts?_embed")
         .then((response) => {
           console.log(response.data);
           this.setState({ posts: response.data });
