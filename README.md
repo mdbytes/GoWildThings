@@ -1,8 +1,8 @@
 #GoWildThings
 
-GoWildThings is a WordPress blog front end which adapts our ReactSiteTemplate to use the WordPress REST API for post data. Features of the application include:
+GoWildThings is a WordPress blog front end which adapts our ReactSiteTemplate to use the WordPress GraphQL for post data. Features of the application include:
 
-1.  Upon initiation, the application downloads all of the posts from the blog as an array of objects.
+1.  The application populates post data either upon entering the galleries page or an individual gallery page.
 
 2.  Users can choose to view one of four pages.
 
@@ -22,4 +22,4 @@ GoWildThings is a WordPress blog front end which adapts our ReactSiteTemplate to
 
 10. This application offers WordPress content creators the ability to step away from preset theme frameworks. Future work will focus on expanding functionality for content creators to a) directly create post content online, b) edit or modify content directly, and c) manage users online.
 
-This application is currently deployed at wildthings.mdbytes.us
+This application is currently deployed at gowildthings.com

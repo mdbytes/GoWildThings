@@ -8,8 +8,6 @@ class PortfolioItem extends Component {
   }
 
   displayGallery = (evt) => {
-    console.dir(evt.target);
-
     let targetButtonClass = evt.target.className;
 
     let startingSlide = 0;

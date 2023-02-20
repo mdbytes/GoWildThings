@@ -43,16 +43,12 @@ const PostPage = () => {
         }
       );
 
-      console.log(response);
-
       response.data.data.post.excerpt = response.data.data.post.excerpt
         .replace(/(^"|"$)/g, "")
         .replace("[", "")
         .replace("]", "");
 
       setPost(response.data.data.post);
-
-      console.log("post", post);
     };
 
     getPost();
@@ -72,16 +68,18 @@ const PostPage = () => {
       .replace("]", "");
     const galleryContent = content.slice(galleryBeginningIndex);
     let beginningIndex = 0;
+    let srcSetBegins = 0;
     let startsWithUrl = "";
     let url = "";
     let remainingGallery = galleryContent;
     let images = [];
     let elements = [];
+    let srcSetArray = [];
 
     let portfolioImage = {};
     let portfolioElement = {};
     let morePhotos = true;
-    let slideLocation = 0;
+    let slideLocation = 1;
 
     while (morePhotos) {
       if (remainingGallery.indexOf("src=") === -1) {
@@ -89,6 +87,14 @@ const PostPage = () => {
         continue;
       }
       beginningIndex = remainingGallery.indexOf("src=") + 5;
+      srcSetBegins = remainingGallery.indexOf("srcset=") + 7;
+      srcSetArray = remainingGallery
+        .slice(srcSetBegins, remainingGallery.indexOf("sizes=") - 1)
+        .trim()
+        .split(",");
+      let largeImageSrc = srcSetArray[srcSetArray.length - 1]
+        .trim()
+        .split(" ")[0];
       startsWithUrl = remainingGallery.slice(beginningIndex);
       url = startsWithUrl.slice(0, startsWithUrl.indexOf('"'));
       remainingGallery = startsWithUrl.slice(startsWithUrl.indexOf('"'));
@@ -98,7 +104,7 @@ const PostPage = () => {
       };
 
       portfolioElement = {
-        href: url,
+        href: largeImageSrc,
         type: "image",
       };
 
@@ -109,8 +115,6 @@ const PostPage = () => {
 
     portfolioDetails.images = images;
     portfolioDetails.elements = elements;
-
-    console.log(portfolioDetails);
   }
 
   if (!post) {
