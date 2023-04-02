@@ -1,17 +1,17 @@
-import PortfolioItems from "./post/PortfolioItems";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import parse from "html-react-parser";
-import { WP_REST_GET_POST_BASE_URL } from "../config/keys";
-import axios from "axios";
-import SeoOptimized from "./SeoOptimized";
+import PortfolioItems from './post/PortfolioItems';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import parse from 'html-react-parser';
+import { WP_REST_GET_POST_BASE_URL } from '../config/keys';
+import axios from 'axios';
+import SeoOptimized from './SeoOptimized';
 
 const PostPage = () => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
-
-  let postIdString = "";
-  let mainContent = "";
+  console.log('id', id);
+  let postIdString = '';
+  let mainContent = '';
   let portfolioDetails = {};
 
   useEffect(() => {
@@ -32,45 +32,47 @@ const PostPage = () => {
           }
       }`;
 
+      console.log(query);
+
       const response = await axios.post(
-        "https://wildthings.wp.mdbytes.us/graphql",
+        'https://wildthings.wp.mdbytes.us/graphql',
 
         { query: query, variables: { id: id } },
         {
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
         }
       );
 
       response.data.data.post.excerpt = response.data.data.post.excerpt
-        .replace(/(^"|"$)/g, "")
-        .replace("[", "")
-        .replace("]", "");
+        .replace(/(^"|"$)/g, '')
+        .replace('[', '')
+        .replace(']', '');
 
       setPost(response.data.data.post);
     };
 
     getPost();
 
-    document.querySelector("#homeLink").classList.remove("active");
-  }, []);
+    document.querySelector('#homeLink').classList.remove('active');
+  }, [id]);
 
   if (post) {
-    postIdString = "post-" + post.id;
+    postIdString = 'post-' + post.id;
     const content = post.content;
     const galleryBeginningIndex = content.indexOf(
       '<figure class="wp-block-image '
     );
     mainContent = content
       .slice(0, galleryBeginningIndex)
-      .replace("[", "")
-      .replace("]", "");
+      .replace('[', '')
+      .replace(']', '');
     const galleryContent = content.slice(galleryBeginningIndex);
     let beginningIndex = 0;
     let srcSetBegins = 0;
-    let startsWithUrl = "";
-    let url = "";
+    let startsWithUrl = '';
+    let url = '';
     let remainingGallery = galleryContent;
     let images = [];
     let elements = [];
@@ -82,19 +84,19 @@ const PostPage = () => {
     let slideLocation = 1;
 
     while (morePhotos) {
-      if (remainingGallery.indexOf("src=") === -1) {
+      if (remainingGallery.indexOf('src=') === -1) {
         morePhotos = false;
         continue;
       }
-      beginningIndex = remainingGallery.indexOf("src=") + 5;
-      srcSetBegins = remainingGallery.indexOf("srcset=") + 7;
+      beginningIndex = remainingGallery.indexOf('src=') + 5;
+      srcSetBegins = remainingGallery.indexOf('srcset=') + 7;
       srcSetArray = remainingGallery
-        .slice(srcSetBegins, remainingGallery.indexOf("sizes=") - 1)
+        .slice(srcSetBegins, remainingGallery.indexOf('sizes=') - 1)
         .trim()
-        .split(",");
+        .split(',');
       let largeImageSrc = srcSetArray[srcSetArray.length - 1]
         .trim()
-        .split(" ")[0];
+        .split(' ')[0];
       startsWithUrl = remainingGallery.slice(beginningIndex);
       url = startsWithUrl.slice(0, startsWithUrl.indexOf('"'));
       remainingGallery = startsWithUrl.slice(startsWithUrl.indexOf('"'));
@@ -105,7 +107,7 @@ const PostPage = () => {
 
       portfolioElement = {
         href: largeImageSrc,
-        type: "image",
+        type: 'image',
       };
 
       images.push(portfolioImage);
@@ -121,13 +123,13 @@ const PostPage = () => {
     return (
       <div
         style={{
-          height: "60vh",
+          height: '60vh',
           marginTop: 175,
-          color: "white",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
+          color: 'white',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
         id="locating-post"
       >
@@ -136,7 +138,7 @@ const PostPage = () => {
     );
   } else {
     return (
-      <section id="post" className="post" style={{ minHeight: "100vh" }}>
+      <section id="post" className="post" style={{ minHeight: '100vh' }}>
         <SeoOptimized title="Gallery" />
         <div className="container">
           <div className="row text-center mt-5">
