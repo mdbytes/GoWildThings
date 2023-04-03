@@ -16,41 +16,23 @@ const PostPage = () => {
 
   useEffect(() => {
     const getPost = async () => {
-      let query = `
-        query SinglePost($id: ID!) {
-          post(id: $id) {
-              postId
-              title
-              slug
-              content
-              excerpt
-              featuredImage {
-                  node {
-                      sourceUrl
-                  }
-              }
-          }
-      }`;
+      let query = `https://wildthings.wp.mdbytes.us/wp-json/wp/v2/posts/${id}`;
 
       console.log(query);
 
-      const response = await axios.post(
-        'https://wildthings.wp.mdbytes.us/graphql',
+      const response = await axios.get(query, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      console.log(response);
 
-        { query: query, variables: { id: id } },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-
-      response.data.data.post.excerpt = response.data.data.post.excerpt
+      response.data.excerpt = response.data.excerpt.rendered
         .replace(/(^"|"$)/g, '')
         .replace('[', '')
         .replace(']', '');
 
-      setPost(response.data.data.post);
+      setPost(response.data);
     };
 
     getPost();
@@ -59,8 +41,9 @@ const PostPage = () => {
   }, [id]);
 
   if (post) {
+    console.log('post', post);
     postIdString = 'post-' + post.id;
-    const content = post.content;
+    const content = post.content.rendered;
     const galleryBeginningIndex = content.indexOf(
       '<figure class="wp-block-image '
     );
@@ -142,7 +125,9 @@ const PostPage = () => {
         <SeoOptimized title="Gallery" />
         <div className="container">
           <div className="row text-center mt-5">
-            <h1 className="display-3 fw-bold text-capitalize">{post.title}</h1>
+            <h1 className="display-3 fw-bold text-capitalize">
+              {post.title.rendered}
+            </h1>
             <div className="heading-line"></div>
           </div>
         </div>

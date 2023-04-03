@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import PostsIntro from "./posts/PostsIntro";
-import Posts from "./posts/Posts";
-import axios from "axios";
-import { WP_REST_GET_POSTS_URL } from "../config/keys";
-import SeoOptimized from "./SeoOptimized";
+import React, { Component } from 'react';
+import PostsIntro from './posts/PostsIntro';
+import Posts from './posts/Posts';
+import axios from 'axios';
+import { WP_REST_GET_POSTS_URL } from '../config/keys';
+import SeoOptimized from './SeoOptimized';
 class PostsPage extends Component {
   state = {
     posts: [],
@@ -12,49 +12,30 @@ class PostsPage extends Component {
   componentDidMount() {
     const getPosts = async () => {
       let blogPosts = [];
-      let query = `
-      query AllPostQuery {
-        posts {
-          nodes {
-            id
-            slug
-            postId
-            title(format: RENDERED)
-            content(format: RENDERED)
-            excerpt(format: RENDERED)
-            featuredImage {
-              node {
-                sourceUrl
-              }
-            }
-          }
-        }
-      }`;
-      const response = await axios.post(
-        "https://wildthings.wp.mdbytes.us/graphql",
 
-        { query: query },
+      const response = await axios.get(
+        'https://wildthings.wp.mdbytes.us/wp-json/wp/v2/posts',
         {
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
         }
       );
 
-      console.log("response", response);
-      blogPosts = response.data.data.posts.nodes;
-      console.log("blogposts", blogPosts);
+      console.log('response', response);
+      blogPosts = response.data;
+      console.log('blogposts', blogPosts);
       if (blogPosts) {
         for (let blog of blogPosts) {
-          blog.excerpt = blog.excerpt
-            .replace(/(^"|"$)/g, "")
-            .replace("[", "")
-            .replace("]", "");
+          blog.excerpt = blog.excerpt.rendered
+            .replace(/(^"|"$)/g, '')
+            .replace('[', '')
+            .replace(']', '');
         }
       }
 
       this.setState({ posts: blogPosts });
-      console.log("state", this.state);
+      console.log('state', this.state);
     };
 
     getPosts();
@@ -66,7 +47,7 @@ class PostsPage extends Component {
         <section
           id="services"
           className="services"
-          style={{ minHeight: "100vh" }}
+          style={{ minHeight: '100vh' }}
         >
           <SeoOptimized title="Nature Adventures" />
           <div className="container">
@@ -79,16 +60,16 @@ class PostsPage extends Component {
       return (
         <section id="services" className="services">
           <div className="container">
-            {" "}
+            {' '}
             <div
               style={{
-                height: "30vh",
+                height: '30vh',
                 marginTop: 175,
-                color: "black",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
+                color: 'black',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
               id="locating-post"
             >
