@@ -1,0 +1,102 @@
+/**
+ * Filename:  _get-started.scss
+ * Author:    Martin Dwyer
+ * Purpose:   Provides styling for the Contact component
+ * Date Mod:  December 8, 2021
+ *
+ */
+
+@use '../custom' as *;
+@use '../components/mixins' as *;
+
+// Styling for the contact page
+
+.contact {
+  background-color: rgba(#f2f2f2, 0.9);
+  .container {
+    padding: 5rem 0;
+  }
+
+  .page-header {
+    padding-top: 75px;
+    width: 100%;
+    max-width: 100vw;
+
+    h1 {
+      padding-top: 2rem;
+      color: $primary;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .icon {
+      @include displayFlexCenter;
+    }
+
+    i {
+      font-size: 2rem;
+      color: $primary;
+      font-weight: 700;
+    }
+  }
+
+  .cta-info {
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+
+    h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: $primary;
+    }
+
+    p {
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    ul {
+      li {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+        font-size: 1.2rem;
+        font-weight: 400;
+
+        i {
+          font-size: 2rem;
+          color: $secondary;
+        }
+      }
+    }
+  }
+
+  .contact-form {
+    h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: $primary;
+    }
+
+    #submit {
+      visibility: hidden;
+    }
+
+    #submit-button {
+      margin-top: 1rem;
+
+      &:visited,
+      &:active {
+        background-color: $primary;
+      }
+    }
+
+    #success-message,
+    #error-message {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+}

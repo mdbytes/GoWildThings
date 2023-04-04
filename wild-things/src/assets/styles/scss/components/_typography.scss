@@ -1,0 +1,166 @@
+@use '../custom' as *;
+@use 'mixins' as *;
+
+body {
+  @include baseFont;
+  @include backgroundImage;
+  @include lightCover;
+}
+
+.App {
+  @include backgroundImage;
+  @include lightCover;
+}
+
+#root {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.btn,
+.btn-rounded,
+.rounded-pill {
+  transition: 1s;
+
+  span {
+    background: transparent;
+
+    i {
+      font-size: 1.5rem;
+      color: $primary;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.1);
+
+    span {
+      i {
+        color: $white;
+      }
+    }
+  }
+}
+
+.attribution {
+  text-align: center;
+  font-size: 1rem;
+  color: $white;
+  margin-top: 10px;
+}
+
+.logo-style {
+  font-family: 'MuseoModerno', cursive;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.1em;
+  color: #ff6a00;
+}
+
+.company-font {
+  font-family: 'Irish Grover', cursive;
+}
+
+.display-2 {
+  margin: 1rem 0;
+  text-transform: capitalize;
+  font-family: 'Poppins', sans-serif;
+
+  &--intro {
+    display: inline-block;
+    font-weight: 700;
+    color: $white;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  &--description {
+    font-size: 1rem;
+    display: block;
+    color: $white;
+    margin: 1.2rem 0;
+    text-transform: none;
+
+    .logo-style {
+      font-family: 'MuseoModerno', cursive;
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.1em;
+      color: $primary;
+    }
+
+    .name-style {
+      font-family: 'Alegreya Sans SC', sans-serif;
+      font-size: 1.5em;
+      font-weight: 800;
+      color: $gray-500;
+      letter-spacing: -0.05em;
+      padding-left: 0.1rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      font-size: 1.5rem;
+      display: inline-block;
+    }
+  }
+}
+
+.gradient {
+  @include gradient;
+}
+
+.heading-line::before {
+  content: '';
+  width: 10rem;
+  height: 0.25rem;
+  display: block;
+  margin: 0 auto;
+  background-color: $white;
+}
+
+.heading-line::after {
+  content: '';
+  width: 5rem;
+  height: 0.2rem;
+  padding-top: 0.35rem;
+  display: block;
+  margin: 0 auto;
+  background-color: $white;
+  margin-bottom: 2rem;
+}
+
+.display-3 {
+  font-family: 'Poppins', sans-serif;
+
+  img {
+    padding-left: 1rem;
+    height: 4rem;
+  }
+
+  &--title {
+    font-size: 1.2rem;
+
+    text-transform: capitalize;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    color: $primary;
+
+    @include media-breakpoint-up(md) {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.border-right {
+  border-right: 0.1rem solid $gray-300;
+  height: 100%;
+}
+
+.goverlay {
+  opacity: 0.95;
+}
+
+#glightbox-body > div.gcontainer > button.gclose.gbtn,
+button.gprev.gbtn,
+button.gnext.gbtn {
+  background-color: $secondary;
+}

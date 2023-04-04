@@ -1,0 +1,185 @@
+/**
+ *
+ * Filename:  _posts.scss
+ * Author:    Martin Dwyer
+ * Purpose:   Provides styling for the posts components
+ * Date Mod:  December 8, 2021
+ *
+ */
+
+@use '../custom' as *;
+@use '../components/mixins' as *;
+@use '../components/mixins';
+
+.posts {
+  background: linear-gradient(
+    rgba($white, 0) 0%,
+    rgba($white, 0.2) 20%,
+    rgba($white, 0.4) 40%,
+    rgba($white, 0.6) 60%,
+    rgba($white, 0.8) 80%,
+    rgba($white, 1) 100%
+  );
+
+  position: relative;
+  padding: 1rem 0;
+  padding-top: 15vh;
+  padding-bottom: 3rem;
+
+  .display-3 {
+    color: $white;
+  }
+
+  #posts-intro-overview {
+    p {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 2.2rem;
+      display: block;
+      width: 80%;
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      border-radius: 8px;
+    }
+  }
+
+  .service-item-row {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    background-color: rgba($white, 0.5);
+
+    padding: 3rem 1.5rem 3rem 1.5rem;
+
+    background-color: rgba($white, 0.8);
+    border: 1px solid rgba($white, 0.8);
+    border-radius: 8px;
+    box-shadow: 0px 0px 3.5rem rgba($white, 0.7);
+
+    animation: fadeIn;
+    animation-delay: 0s !important;
+    animation-duration: 3.5s !important;
+  }
+
+  @keyframes loadIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .posts-column {
+    margin: 0rem auto;
+
+    &.right-content {
+      display: none;
+
+      @include media-breakpoint-up(md) {
+        display: flex;
+      }
+    }
+
+    &.left-content {
+      @include media-breakpoint-up(md) {
+        display: none;
+      }
+    }
+  }
+
+  &__content {
+    padding: 1rem;
+    margin-top: 0rem;
+
+    height: auto;
+
+    .display-3--title {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      width: 100%;
+      text-align: center;
+
+      @include media-breakpoint-down(md) {
+        font-size: 150%;
+      }
+    }
+
+    p {
+      margin-top: 1rem;
+      text-align: left;
+      font-size: 1.2rem;
+      line-height: 1.7rem;
+
+      a {
+        display: none;
+      }
+    }
+
+    .learn-btn {
+      display: flex;
+      justify-content: center;
+
+      a {
+        margin: 2rem auto;
+        text-decoration: none;
+        border: none;
+        color: $primary;
+
+        span {
+          background-color: rgba($white, 0.1);
+
+          i {
+            font-size: 2rem !important;
+            color: $primary;
+
+            @include media-breakpoint-up(md) {
+              font-size: 3rem;
+            }
+          }
+        }
+
+        &:hover {
+          box-shadow: 0 0 2rem rgba($secondary, 0.8);
+          background: linear-gradient(
+            147deg,
+            $primary-dark 0%,
+            $primary 55%,
+            $primary-light 70%,
+            $secondary 100%
+          );
+          color: #fff;
+
+          i {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  &__pic {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    transition: 1s;
+
+    img {
+      display: block;
+      width: 95%;
+      border-radius: 8px;
+      box-shadow: 0px 0px 2rem rgba($secondary, 0.8);
+    }
+
+    @media (max-width: 992px) {
+      margin-top: 0rem;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
