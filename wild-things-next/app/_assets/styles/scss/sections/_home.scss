@@ -1,0 +1,223 @@
+/**
+ * Filename:  _intro-section.scss
+ * Author:    Martin Dwyer
+ * Purpose:   Provides styling for the LandingPage component
+ * Date Mod:  December 8, 2021
+ *
+ */
+
+@use '../custom' as *;
+@use '../components/mixins' as *;
+@use '../components/animations' as *;
+
+// landing page wrapper
+.intro-section {
+    min-height: 100vh;
+    padding: 2rem 0 0 0;
+    margin-top: 15vh;
+    width: 100%;
+    max-width: 1000px;
+    float: right;
+
+    // reducing padding for lower screens
+    @include media-breakpoint-down(lg) {
+        padding: 4rem 0 0 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    // watch our video play icon
+    .btn-rounded span i {
+        font-size: 1.25rem !important;
+    }
+
+    // class .intros applies to both columns on LandingPage
+    .intros {
+        h1 {
+            color: #fff;
+            font-size: 3rem;
+            text-align: center;
+            font-weight: 800;
+            text-shadow: 0.25rem 0.25rem 0.25rem rgba(black, 1);
+        }
+
+        // site tag line in first column
+        .display-2--description {
+            color: $gray-700;
+
+            border-radius: 8px;
+            box-shadow: 0px 0px 8px 8px rgba($white, 0);
+            background-color: rgba($white, 0);
+            padding: 1rem;
+            margin-bottom: 3rem;
+            text-shadow: 0.25rem 0.25rem 0.25rem rgba(black, 1);
+
+            @media (max-width: 414px) {
+                margin-bottom: 0rem;
+            }
+        }
+
+        // Additional text for site
+        #intro {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 2rem;
+
+            span {
+                color: $white;
+                font-size: 1rem;
+                text-align: center;
+
+                #tagline {
+                    color: #fff;
+                    font-weight: 800;
+                    margin-bottom: 3rem;
+                }
+
+                @include media-breakpoint-down(sm) {
+                    font-size: 0.9rem;
+                }
+
+                @media (max-width: 414px) {
+                    font-size: 0.75rem;
+                }
+            }
+
+            // adjusting for mdbytes logo font
+            .logo-style {
+                color: $secondary;
+                font-size: 2rem;
+                font-weight: 800;
+
+                @media (max-width: 414px) {
+                    font-size: 1.2rem;
+                }
+            }
+
+            // adjusting for mdbytes name font
+            .name-style {
+                color: $secondary;
+                font-size: 2.25rem;
+
+                @media (max-width: 414px) {
+                    font-size: 1.2rem;
+                }
+            }
+
+            @include media-breakpoint-down(sm) {
+                margin-left: 1rem;
+            }
+        }
+
+        // "watch our video" button
+        .btn-rounded {
+            display: block;
+            margin: 0 auto;
+            border: none;
+            background-color: rgba($white, 0.65);
+            box-shadow: 0 0 2rem rgba($black, 1);
+
+            &:hover {
+                box-shadow: 0 0 2rem rgba($secondary, 1);
+
+                a {
+                    background-color: $white;
+                    color: $primary;
+                }
+            }
+
+            @media (max-width: 992px) {
+                display: none;
+            }
+        }
+
+        // From here down covers the right (2nd) column on the
+        // LandingPage component
+        .video-box {
+            position: relative;
+
+            img {
+                display: block;
+                margin: 0 auto;
+                max-height: 50vh;
+                width: 70%;
+                padding: 1rem;
+                background-color: rgba($white, 0.2);
+                box-shadow: 0 0 10px 10px rgba($white, 0.2);
+                box-shadow: 0 0 -10px -10px rgba($white, 1);
+                border-radius: 20%;
+
+                margin-top: 5rem;
+
+                @include media-breakpoint-down(lg) {
+                    width: 70%;
+                    margin-top: 4rem;
+                    margin-bottom: 6rem;
+                }
+
+                @include media-breakpoint-down(md) {
+                    margin-top: 4rem;
+                    width: 85%;
+                }
+
+                @media (max-width: 414px) {
+                    margin-top: 1rem;
+                }
+            }
+
+            button {
+                background-color: rgba(0, 0, 0, 0);
+                border: none;
+                position: absolute !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                left: 50% !important;
+                top: 50% !important;
+                transform: translate(-50%, -50%) !important;
+
+                span {
+                    box-sizing: border-box;
+                    margin-top: 5rem;
+
+                    i {
+                        font-size: 4rem;
+                        color: rgba($secondary, 0.85);
+
+                        @include media-breakpoint-down(lg) {
+                            font-size: 3rem;
+                        }
+                    }
+                }
+
+                // Note that the animation 'pulse-border' keyframe can be found
+                // in components/animations
+                span.border-animation {
+                    position: absolute;
+                    box-sizing: border-box;
+                    width: 4rem;
+                    height: 4rem;
+                    border: 0.55rem solid rgba($white, 0.5);
+                    border-radius: 50%;
+                    animation: pulse-border 4s linear infinite;
+
+                    @include media-breakpoint-down(lg) {
+                        width: 3rem;
+                        height: 3rem;
+                    }
+
+                    &--border-1 {
+                        animation-delay: 1s;
+                    }
+
+                    &--border-2 {
+                        animation-delay: 2s;
+                    }
+                }
+            }
+        }
+    }
+}
