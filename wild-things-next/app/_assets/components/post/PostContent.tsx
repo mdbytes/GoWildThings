@@ -1,24 +1,23 @@
 'use client';
 
 import parse from 'html-react-parser';
+import GLightbox from 'glightbox';
 
 import '../../../../node_modules/glightbox/dist/css/glightbox.css';
 
-import {
-    displayGallery,
-    getMainContent,
-    slideShowSetup,
-} from '../../utils/slideShow';
-import { DisplayGalleryProps, PostPageProps } from '@/types';
+import { getMainContent, slideShowSetup } from '../../utils/slideShow';
+import { PostPageProps } from '@/types';
+import { useEffect } from 'react';
 
 export const PostContent = (props: PostPageProps) => {
-    console.log('setting up post', props);
-    const portfolioDetails = slideShowSetup(props.post);
+    const post = props.post;
+    const portfolioDetails = slideShowSetup(post);
+    const mainContent = getMainContent(post);
+    const postId = post['id'];
 
-    const mainContent = getMainContent(props.post);
-    const postId = props.id;
+    useEffect(() => {}, []);
 
-    if (!props.post || window === undefined) {
+    if (!post) {
         return (
             <div
                 style={{
@@ -37,17 +36,35 @@ export const PostContent = (props: PostPageProps) => {
         );
     } else {
         /* eslint-disable @typescript-eslint/no-explicit-any */
-        const showGallery = (event: any) => {
-            const galleryProps: DisplayGalleryProps = {
-                evt: {
-                    target: {
-                        className: event.target.className,
-                    },
-                },
-                elements: portfolioDetails.elements,
-            };
+        const showGallery = (evt: any) => {
+            if (typeof window !== 'undefined') {
+                const targetButtonClass = evt.target.className;
 
-            displayGallery(galleryProps);
+                let startingSlide = 0;
+
+                startingSlide = Number.parseInt(
+                    targetButtonClass
+                        .replace('photo-', '')
+                        .replace(' glightbox', '')
+                );
+
+                const myGallery = GLightbox({
+                    // @ts-expect-error: elements not recognized by ES Lint
+                    elements: portfolioDetails.elements,
+                    autoplayVideos: false,
+                    startAt: startingSlide - 1,
+                    openEffect: 'fade',
+                    closeEffect: 'fade',
+                    zoomable: true,
+                });
+
+                myGallery.on('close', () => {
+                    myGallery.close();
+                });
+
+                // @ts-expect-error: not recognized by ES Lint
+                myGallery.open();
+            }
         };
 
         return (
@@ -55,7 +72,7 @@ export const PostContent = (props: PostPageProps) => {
                 <div className="container">
                     <div className="row text-center mt-5">
                         <h1 className="display-3 fw-bold text-capitalize">
-                            {props.post.title.rendered}
+                            {post.title.rendered}
                         </h1>
                         <div className="heading-line"></div>
                     </div>

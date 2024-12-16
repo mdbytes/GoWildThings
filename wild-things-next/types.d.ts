@@ -81,8 +81,6 @@ type PostsRenderedProps = {
 
 type PostPageProps = {
     post: Post;
-    slug: string;
-    id: number;
 };
 
 type Slide = {

@@ -1,3 +1,5 @@
+'use client';
+
 import { DisplayGalleryProps } from '@/types';
 import GLightbox from 'glightbox';
 
@@ -26,4 +28,8 @@ export const displayGallery = (props: DisplayGalleryProps) => {
 
     // @ts-expect-error: not recognized by ES Lint
     myGallery.open();
+};
+
+export const getGLightbox = () => {
+    return GLightbox;
 };
