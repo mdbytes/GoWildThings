@@ -25,3 +25,5 @@ GoWildThings is a WordPress blog front end which adapts our ReactSiteTemplate to
 This application is in process of being upgraded to React 18, React Router 6, and replacement of all class components (which were commonly used when this app was first developed) with functional components. Hooks will soon replace out-dated lifecycle methods.
 
 This application is currently deployed using React.Js with Next.Js on a Vercel cloud server at the address gowildthings.com
+
+Updated 2024-12-16
