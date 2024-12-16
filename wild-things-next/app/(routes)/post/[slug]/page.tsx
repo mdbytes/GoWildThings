@@ -3,22 +3,6 @@ import React from 'react';
 import { Post } from '../../../../types';
 import { PostContent } from '@/app/_assets/components/post/PostContent';
 
-// export async function generateStaticParams() {
-//     const posts: Post[] = await getAllPosts();
-
-//     const staticParams: { slug: string }[] | undefined = [];
-
-//     for (const post of posts) {
-//         staticParams.push({ slug: post.slug });
-//     }
-
-//     return staticParams;
-// }
-
-// export const metadata: Metadata = {
-//     title: 'Post |  Wild Things Nature Photography',
-// };
-
 export default async function page({
     params,
 }: {
